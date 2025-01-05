@@ -1,0 +1,203 @@
+\subsection{Kết quả thực nghiệm}
+Các bảng \ref{tab:randomize_10000_30000_50000}, \ref{tab:randomize_100000_300000_500000}, \ref{tab:nearly_sorted_10000_30000_50000}, \ref{tab:nearly_sorted_100000_300000_500000}, \ref{tab:sorted_10000_30000_50000}, \ref{tab:sorted_100000_300000_500000}, \ref{tab:reversed_10000_30000_50000}, \ref{tab:reversed_100000_300000_500000} là kết quả thực nghiệm cho 11 thuật toán đã được giới thiệu trên các bộ dữ liệu khác nhau.
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Randomize} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{10000} & \multicolumn{2}{c|}{30000} & \multicolumn{2}{c|}{50000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{56.029} & \multicolumn{1}{c|}{100009999} & \multicolumn{1}{c|}{516.65} & \multicolumn{1}{c|}{900029999} & \multicolumn{1}{c|}{1442.0} & \multicolumn{1}{c|}{2500049999} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{38.161} & \multicolumn{1}{c|}{30000} & \multicolumn{1}{c|}{347.047} & \multicolumn{1}{c|}{90000} & \multicolumn{1}{c|}{951.384} & \multicolumn{1}{c|}{150000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{159.467} & \multicolumn{1}{c|}{20001} & \multicolumn{1}{c|}{1460.07} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{4098.85} & \multicolumn{1}{c|}{100001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{146.941} & \multicolumn{1}{c|}{20002} & \multicolumn{1}{c|}{1273.16} & \multicolumn{1}{c|}{60002} & \multicolumn{1}{c|}{3714.8} & \multicolumn{1}{c|}{100002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{1.056} & \multicolumn{1}{c|}{360042} & \multicolumn{1}{c|}{4.07} & \multicolumn{1}{c|}{1170050} & \multicolumn{1}{c|}{6.907} & \multicolumn{1}{c|}{2100049} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{1.68} & \multicolumn{1}{c|}{531890} & \multicolumn{1}{c|}{4.935} & \multicolumn{1}{c|}{1782832} & \multicolumn{1}{c|}{9.843} & \multicolumn{1}{c|}{3129808} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{2.874} & \multicolumn{1}{c|}{475242} & \multicolumn{1}{c|}{9.547} & \multicolumn{1}{c|}{1559914} & \multicolumn{1}{c|}{16.116} & \multicolumn{1}{c|}{2722826} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{0.875} & \multicolumn{1}{c|}{249021} & \multicolumn{1}{c|}{3.021} & \multicolumn{1}{c|}{842874} & \multicolumn{1}{c|}{5.673} & \multicolumn{1}{c|}{1485241} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.174} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{0.47} & \multicolumn{1}{c|}{180001} & \multicolumn{1}{c|}{0.683} & \multicolumn{1}{c|}{265537} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{1.348} & \multicolumn{1}{c|}{140056} & \multicolumn{1}{c|}{5.13} & \multicolumn{1}{c|}{510070} & \multicolumn{1}{c|}{8.061} & \multicolumn{1}{c|}{850070} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{0.261} & \multicolumn{1}{c|}{113738} & \multicolumn{1}{c|}{0.806} & \multicolumn{1}{c|}{340522} & \multicolumn{1}{c|}{1.182} & \multicolumn{1}{c|}{554770} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Randomize, Data Size: 10000, 30000, 50000}
+\label{tab:randomize_10000_30000_50000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Randomize} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{100000} & \multicolumn{2}{c|}{300000} & \multicolumn{2}{c|}{500000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{5786.41} & \multicolumn{1}{c|}{10000099999} & \multicolumn{1}{c|}{79174.4} & \multicolumn{1}{c|}{90000299999} & \multicolumn{1}{c|}{235315.0} & \multicolumn{1}{c|}{250000000000} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{3938.03} & \multicolumn{1}{c|}{300000} & \multicolumn{1}{c|}{38176.3} & \multicolumn{1}{c|}{900000} & \multicolumn{1}{c|}{150747.0} & \multicolumn{1}{c|}{1500000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{26039.3} & \multicolumn{1}{c|}{200001} & \multicolumn{1}{c|}{322396.0} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{1040000.0} & \multicolumn{1}{c|}{1000001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{27831.4} & \multicolumn{1}{c|}{200002} & \multicolumn{1}{c|}{291061.0} & \multicolumn{1}{c|}{600002} & \multicolumn{1}{c|}{786296.0} & \multicolumn{1}{c|}{1000002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{15.307} & \multicolumn{1}{c|}{4500051} & \multicolumn{1}{c|}{56.008} & \multicolumn{1}{c|}{15300061} & \multicolumn{1}{c|}{96.414} & \multicolumn{1}{c|}{25500058} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{18.801} & \multicolumn{1}{c|}{6661577} & \multicolumn{1}{c|}{65.966} & \multicolumn{1}{c|}{21866838} & \multicolumn{1}{c|}{122.131} & \multicolumn{1}{c|}{37567357} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{33.862} & \multicolumn{1}{c|}{5745658} & \multicolumn{1}{c|}{111.088} & \multicolumn{1}{c|}{18645946} & \multicolumn{1}{c|}{186.839} & \multicolumn{1}{c|}{32017850} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{11.923} & \multicolumn{1}{c|}{3243460} & \multicolumn{1}{c|}{36.595} & \multicolumn{1}{c|}{12035536} & \multicolumn{1}{c|}{65.577} & \multicolumn{1}{c|}{23408133} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.98} & \multicolumn{1}{c|}{465537} & \multicolumn{1}{c|}{2.517} & \multicolumn{1}{c|}{1265537} & \multicolumn{1}{c|}{2.886} & \multicolumn{1}{c|}{2065537} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{16.315} & \multicolumn{1}{c|}{1700070} & \multicolumn{1}{c|}{50.866} & \multicolumn{1}{c|}{5100070} & \multicolumn{1}{c|}{82.875} & \multicolumn{1}{c|}{8500070} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{2.234} & \multicolumn{1}{c|}{1036662} & \multicolumn{1}{c|}{14.344} & \multicolumn{1}{c|}{2927277} & \multicolumn{1}{c|}{17.335} & \multicolumn{1}{c|}{4813286} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Randomize, Data Size: 100000, 300000, 500000}
+\label{tab:randomize_100000_300000_500000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Nearly sorted} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{10000} & \multicolumn{2}{c|}{30000} & \multicolumn{2}{c|}{50000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{60.636} & \multicolumn{1}{c|}{100009999} & \multicolumn{1}{c|}{530.539} & \multicolumn{1}{c|}{900029999} & \multicolumn{1}{c|}{1436.35} & \multicolumn{1}{c|}{2500049999} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{0.103} & \multicolumn{1}{c|}{30000} & \multicolumn{1}{c|}{0.372} & \multicolumn{1}{c|}{90000} & \multicolumn{1}{c|}{0.616} & \multicolumn{1}{c|}{150000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{59.023} & \multicolumn{1}{c|}{20001} & \multicolumn{1}{c|}{567.79} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{1348.86} & \multicolumn{1}{c|}{100001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{0.379} & \multicolumn{1}{c|}{20002} & \multicolumn{1}{c|}{1.097} & \multicolumn{1}{c|}{60002} & \multicolumn{1}{c|}{2.058} & \multicolumn{1}{c|}{100002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{0.303} & \multicolumn{1}{c|}{360042} & \multicolumn{1}{c|}{1.079} & \multicolumn{1}{c|}{1170050} & \multicolumn{1}{c|}{2.495} & \multicolumn{1}{c|}{2100049} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{1.343} & \multicolumn{1}{c|}{533373} & \multicolumn{1}{c|}{4.056} & \multicolumn{1}{c|}{1781548} & \multicolumn{1}{c|}{7.351} & \multicolumn{1}{c|}{3127047} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{2.453} & \multicolumn{1}{c|}{475242} & \multicolumn{1}{c|}{6.766} & \multicolumn{1}{c|}{1559914} & \multicolumn{1}{c|}{11.832} & \multicolumn{1}{c|}{2722826} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{0.432} & \multicolumn{1}{c|}{244975} & \multicolumn{1}{c|}{1.408} & \multicolumn{1}{c|}{823646} & \multicolumn{1}{c|}{2.413} & \multicolumn{1}{c|}{1467264} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.1} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{0.264} & \multicolumn{1}{c|}{180001} & \multicolumn{1}{c|}{0.437} & \multicolumn{1}{c|}{300001} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{1.29} & \multicolumn{1}{c|}{140056} & \multicolumn{1}{c|}{4.788} & \multicolumn{1}{c|}{510070} & \multicolumn{1}{c|}{8.045} & \multicolumn{1}{c|}{850070} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{0.225} & \multicolumn{1}{c|}{118596} & \multicolumn{1}{c|}{0.575} & \multicolumn{1}{c|}{355796} & \multicolumn{1}{c|}{0.939} & \multicolumn{1}{c|}{592996} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Nearly sorted, Data Size: 10000, 30000, 50000}
+\label{tab:nearly_sorted_10000_30000_50000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Nearly sorted} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{100000} & \multicolumn{2}{c|}{300000} & \multicolumn{2}{c|}{500000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{5760.69} & \multicolumn{1}{c|}{10000099999} & \multicolumn{1}{c|}{53192.5} & \multicolumn{1}{c|}{90000299999} & \multicolumn{1}{c|}{186513.0} & \multicolumn{1}{c|}{250000000000} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{1.151} & \multicolumn{1}{c|}{300000} & \multicolumn{1}{c|}{0.983} & \multicolumn{1}{c|}{900000} & \multicolumn{1}{c|}{1.37} & \multicolumn{1}{c|}{1500000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{3222.96} & \multicolumn{1}{c|}{200001} & \multicolumn{1}{c|}{8011.36} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{15257.1} & \multicolumn{1}{c|}{1000001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{2.95} & \multicolumn{1}{c|}{200002} & \multicolumn{1}{c|}{5.419} & \multicolumn{1}{c|}{600002} & \multicolumn{1}{c|}{8.153} & \multicolumn{1}{c|}{1000002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{3.637} & \multicolumn{1}{c|}{4500051} & \multicolumn{1}{c|}{11.507} & \multicolumn{1}{c|}{15300061} & \multicolumn{1}{c|}{18.253} & \multicolumn{1}{c|}{25500058} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{16.592} & \multicolumn{1}{c|}{6664226} & \multicolumn{1}{c|}{55.096} & \multicolumn{1}{c|}{21852070} & \multicolumn{1}{c|}{88.465} & \multicolumn{1}{c|}{37799186} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{25.153} & \multicolumn{1}{c|}{5745658} & \multicolumn{1}{c|}{75.957} & \multicolumn{1}{c|}{18645946} & \multicolumn{1}{c|}{126.658} & \multicolumn{1}{c|}{32017850} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{5.253} & \multicolumn{1}{c|}{3134498} & \multicolumn{1}{c|}{15.977} & \multicolumn{1}{c|}{10258249} & \multicolumn{1}{c|}{26.674} & \multicolumn{1}{c|}{17737894} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.868} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{2.517} & \multicolumn{1}{c|}{1800001} & \multicolumn{1}{c|}{4.025} & \multicolumn{1}{c|}{3000001} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{15.959} & \multicolumn{1}{c|}{1700070} & \multicolumn{1}{c|}{58.055} & \multicolumn{1}{c|}{6000084} & \multicolumn{1}{c|}{96.828} & \multicolumn{1}{c|}{10000084} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{1.975} & \multicolumn{1}{c|}{1185996} & \multicolumn{1}{c|}{5.865} & \multicolumn{1}{c|}{3557996} & \multicolumn{1}{c|}{10.106} & \multicolumn{1}{c|}{5929996} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Nearly sorted, Data Size: 100000, 300000, 500000}
+\label{tab:nearly_sorted_100000_300000_500000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Sorted} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{10000} & \multicolumn{2}{c|}{30000} & \multicolumn{2}{c|}{50000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{61.865} & \multicolumn{1}{c|}{100009999} & \multicolumn{1}{c|}{523.715} & \multicolumn{1}{c|}{900029999} & \multicolumn{1}{c|}{1412.06} & \multicolumn{1}{c|}{2500049999} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{0.024} & \multicolumn{1}{c|}{30000} & \multicolumn{1}{c|}{0.061} & \multicolumn{1}{c|}{90000} & \multicolumn{1}{c|}{0.259} & \multicolumn{1}{c|}{150000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{0.02} & \multicolumn{1}{c|}{20001} & \multicolumn{1}{c|}{0.04} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{0.062} & \multicolumn{1}{c|}{100001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{0.013} & \multicolumn{1}{c|}{20002} & \multicolumn{1}{c|}{0.064} & \multicolumn{1}{c|}{60002} & \multicolumn{1}{c|}{0.081} & \multicolumn{1}{c|}{100002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{0.244} & \multicolumn{1}{c|}{360042} & \multicolumn{1}{c|}{0.875} & \multicolumn{1}{c|}{1170050} & \multicolumn{1}{c|}{1.474} & \multicolumn{1}{c|}{2100049} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{1.216} & \multicolumn{1}{c|}{533373} & \multicolumn{1}{c|}{4.293} & \multicolumn{1}{c|}{1781548} & \multicolumn{1}{c|}{8.085} & \multicolumn{1}{c|}{3127047} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{2.268} & \multicolumn{1}{c|}{475242} & \multicolumn{1}{c|}{7.243} & \multicolumn{1}{c|}{1559914} & \multicolumn{1}{c|}{13.63} & \multicolumn{1}{c|}{2722826} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{0.367} & \multicolumn{1}{c|}{244975} & \multicolumn{1}{c|}{1.247} & \multicolumn{1}{c|}{823646} & \multicolumn{1}{c|}{2.242} & \multicolumn{1}{c|}{1467264} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.121} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{0.283} & \multicolumn{1}{c|}{180001} & \multicolumn{1}{c|}{0.465} & \multicolumn{1}{c|}{300001} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{1.277} & \multicolumn{1}{c|}{140056} & \multicolumn{1}{c|}{4.761} & \multicolumn{1}{c|}{510070} & \multicolumn{1}{c|}{8.13} & \multicolumn{1}{c|}{850070} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{0.222} & \multicolumn{1}{c|}{118596} & \multicolumn{1}{c|}{1.463} & \multicolumn{1}{c|}{355796} & \multicolumn{1}{c|}{1.085} & \multicolumn{1}{c|}{592996} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Sorted, Data Size: 10000, 30000, 50000}
+\label{tab:sorted_10000_30000_50000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Sorted} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{100000} & \multicolumn{2}{c|}{300000} & \multicolumn{2}{c|}{500000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{5780.71} & \multicolumn{1}{c|}{10000099999} & \multicolumn{1}{c|}{58531.1} & \multicolumn{1}{c|}{90000299999} & \multicolumn{1}{c|}{169826.0} & \multicolumn{1}{c|}{250000000000} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{0.623} & \multicolumn{1}{c|}{300000} & \multicolumn{1}{c|}{0.721} & \multicolumn{1}{c|}{900000} & \multicolumn{1}{c|}{1.691} & \multicolumn{1}{c|}{1500000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{0.159} & \multicolumn{1}{c|}{200001} & \multicolumn{1}{c|}{0.38} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{0.598} & \multicolumn{1}{c|}{1000001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{0.317} & \multicolumn{1}{c|}{200002} & \multicolumn{1}{c|}{0.347} & \multicolumn{1}{c|}{600002} & \multicolumn{1}{c|}{0.561} & \multicolumn{1}{c|}{1000002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{3.242} & \multicolumn{1}{c|}{4500051} & \multicolumn{1}{c|}{10.595} & \multicolumn{1}{c|}{15300061} & \multicolumn{1}{c|}{25.038} & \multicolumn{1}{c|}{25500058} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{16.197} & \multicolumn{1}{c|}{6664226} & \multicolumn{1}{c|}{52.408} & \multicolumn{1}{c|}{21852070} & \multicolumn{1}{c|}{93.869} & \multicolumn{1}{c|}{37799186} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{23.984} & \multicolumn{1}{c|}{5745658} & \multicolumn{1}{c|}{76.743} & \multicolumn{1}{c|}{18645946} & \multicolumn{1}{c|}{125.298} & \multicolumn{1}{c|}{32017850} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{5.381} & \multicolumn{1}{c|}{3134498} & \multicolumn{1}{c|}{14.879} & \multicolumn{1}{c|}{10258249} & \multicolumn{1}{c|}{29.975} & \multicolumn{1}{c|}{17737894} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{1.161} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{2.576} & \multicolumn{1}{c|}{1800001} & \multicolumn{1}{c|}{4.636} & \multicolumn{1}{c|}{3000001} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{16.068} & \multicolumn{1}{c|}{1700070} & \multicolumn{1}{c|}{60.987} & \multicolumn{1}{c|}{6000084} & \multicolumn{1}{c|}{102.261} & \multicolumn{1}{c|}{10000084} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{2.253} & \multicolumn{1}{c|}{1185996} & \multicolumn{1}{c|}{5.986} & \multicolumn{1}{c|}{3557996} & \multicolumn{1}{c|}{10.233} & \multicolumn{1}{c|}{5929996} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Sorted, Data Size: 100000, 300000, 500000}
+\label{tab:sorted_100000_300000_500000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Reversed} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{10000} & \multicolumn{2}{c|}{30000} & \multicolumn{2}{c|}{50000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{62.649} & \multicolumn{1}{c|}{100009999} & \multicolumn{1}{c|}{568.381} & \multicolumn{1}{c|}{900029999} & \multicolumn{1}{c|}{1611.17} & \multicolumn{1}{c|}{2500049999} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{81.912} & \multicolumn{1}{c|}{30000} & \multicolumn{1}{c|}{704.799} & \multicolumn{1}{c|}{90000} & \multicolumn{1}{c|}{2071.09} & \multicolumn{1}{c|}{150000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{273.342} & \multicolumn{1}{c|}{20001} & \multicolumn{1}{c|}{2350.19} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{6488.95} & \multicolumn{1}{c|}{100001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{260.066} & \multicolumn{1}{c|}{20002} & \multicolumn{1}{c|}{2301.06} & \multicolumn{1}{c|}{60002} & \multicolumn{1}{c|}{6413.7} & \multicolumn{1}{c|}{100002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{0.547} & \multicolumn{1}{c|}{360042} & \multicolumn{1}{c|}{1.946} & \multicolumn{1}{c|}{1170050} & \multicolumn{1}{c|}{2.706} & \multicolumn{1}{c|}{2100049} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{1.191} & \multicolumn{1}{c|}{533373} & \multicolumn{1}{c|}{4.043} & \multicolumn{1}{c|}{1781548} & \multicolumn{1}{c|}{7.825} & \multicolumn{1}{c|}{3127047} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{2.169} & \multicolumn{1}{c|}{475242} & \multicolumn{1}{c|}{6.936} & \multicolumn{1}{c|}{1559914} & \multicolumn{1}{c|}{11.727} & \multicolumn{1}{c|}{2722826} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{0.437} & \multicolumn{1}{c|}{244975} & \multicolumn{1}{c|}{1.44} & \multicolumn{1}{c|}{823646} & \multicolumn{1}{c|}{2.491} & \multicolumn{1}{c|}{1467264} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.147} & \multicolumn{1}{c|}{60001} & \multicolumn{1}{c|}{0.355} & \multicolumn{1}{c|}{180001} & \multicolumn{1}{c|}{0.428} & \multicolumn{1}{c|}{300001} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{1.425} & \multicolumn{1}{c|}{140056} & \multicolumn{1}{c|}{4.8} & \multicolumn{1}{c|}{510070} & \multicolumn{1}{c|}{8.158} & \multicolumn{1}{c|}{850070} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{0.226} & \multicolumn{1}{c|}{118596} & \multicolumn{1}{c|}{0.545} & \multicolumn{1}{c|}{355796} & \multicolumn{1}{c|}{0.946} & \multicolumn{1}{c|}{592996} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Reversed, Data Size: 10000, 30000, 50000}
+\label{tab:reversed_10000_30000_50000}
+\end{table}
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|ccccccc|}
+\hline
+\multicolumn{7}{|c|}{Data Order: Reversed} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Data size}} & \multicolumn{2}{c|}{100000} & \multicolumn{2}{c|}{300000} & \multicolumn{2}{c|}{500000} \\ \hline
+\multicolumn{1}{|c|}{\textbf{Resulting statics}} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} & \multicolumn{1}{c|}{Running time} & \multicolumn{1}{c|}{Comparisons} \\ \hline
+\multicolumn{1}{|c|}{Selection Sort} & \multicolumn{1}{c|}{6429.49} & \multicolumn{1}{c|}{10000099999} & \multicolumn{1}{c|}{92239.4} & \multicolumn{1}{c|}{90000299999} & \multicolumn{1}{c|}{247266.0} & \multicolumn{1}{c|}{250000000000} \\ \hline
+\multicolumn{1}{|c|}{Insertion Sort} & \multicolumn{1}{c|}{7593.92} & \multicolumn{1}{c|}{300000} & \multicolumn{1}{c|}{106831.0} & \multicolumn{1}{c|}{900000} & \multicolumn{1}{c|}{306180.0} & \multicolumn{1}{c|}{1500000} \\ \hline
+\multicolumn{1}{|c|}{Bubble Sort} & \multicolumn{1}{c|}{36300.0} & \multicolumn{1}{c|}{200001} & \multicolumn{1}{c|}{369538.0} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{1020000.0} & \multicolumn{1}{c|}{1000001} \\ \hline
+\multicolumn{1}{|c|}{Shaker Sort} & \multicolumn{1}{c|}{35741.5} & \multicolumn{1}{c|}{200002} & \multicolumn{1}{c|}{284283.0} & \multicolumn{1}{c|}{600002} & \multicolumn{1}{c|}{985353.0} & \multicolumn{1}{c|}{1000002} \\ \hline
+\multicolumn{1}{|c|}{Shell Sort} & \multicolumn{1}{c|}{5.417} & \multicolumn{1}{c|}{4500051} & \multicolumn{1}{c|}{16.529} & \multicolumn{1}{c|}{15300061} & \multicolumn{1}{c|}{27.973} & \multicolumn{1}{c|}{25500058} \\ \hline
+\multicolumn{1}{|c|}{Heap Sort} & \multicolumn{1}{c|}{15.049} & \multicolumn{1}{c|}{6664226} & \multicolumn{1}{c|}{56.193} & \multicolumn{1}{c|}{21852070} & \multicolumn{1}{c|}{94.705} & \multicolumn{1}{c|}{37799186} \\ \hline
+\multicolumn{1}{|c|}{Merge Sort} & \multicolumn{1}{c|}{26.804} & \multicolumn{1}{c|}{5745658} & \multicolumn{1}{c|}{79.468} & \multicolumn{1}{c|}{18645946} & \multicolumn{1}{c|}{130.441} & \multicolumn{1}{c|}{32017850} \\ \hline
+\multicolumn{1}{|c|}{Quick Sort} & \multicolumn{1}{c|}{5.106} & \multicolumn{1}{c|}{3134498} & \multicolumn{1}{c|}{17.918} & \multicolumn{1}{c|}{10258249} & \multicolumn{1}{c|}{31.28} & \multicolumn{1}{c|}{17737894} \\ \hline
+\multicolumn{1}{|c|}{Counting Sort} & \multicolumn{1}{c|}{0.858} & \multicolumn{1}{c|}{600001} & \multicolumn{1}{c|}{2.529} & \multicolumn{1}{c|}{1800001} & \multicolumn{1}{c|}{4.193} & \multicolumn{1}{c|}{3000001} \\ \hline
+\multicolumn{1}{|c|}{Radix Sort} & \multicolumn{1}{c|}{16.695} & \multicolumn{1}{c|}{1700070} & \multicolumn{1}{c|}{61.77} & \multicolumn{1}{c|}{6000084} & \multicolumn{1}{c|}{104.896} & \multicolumn{1}{c|}{10000084} \\ \hline
+\multicolumn{1}{|c|}{Flash Sort} & \multicolumn{1}{c|}{1.849} & \multicolumn{1}{c|}{1185996} & \multicolumn{1}{c|}{5.545} & \multicolumn{1}{c|}{3557996} & \multicolumn{1}{c|}{12.877} & \multicolumn{1}{c|}{5929996} \\ \hline
+\end{tabular}%
+}
+\caption{Kết quả thực nghiệm cho mảng có Data Order: Reversed, Data Size: 100000, 300000, 500000}
+\label{tab:reversed_100000_300000_500000}
+\end{table}
+

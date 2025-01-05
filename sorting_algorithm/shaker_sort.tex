@@ -1,0 +1,105 @@
+\subsection{Shaker sort}
+\label{subsec:shaker-sort}
+
+\subsubsection{Ý tưởng}
+Shaker Sort (hay còn gọi là Cocktail Sort) là một thuật toán sắp xếp cải tiến từ Bubble Sort. Thuật toán không chỉ duyệt qua danh sách từ đầu đến cuối như Bubble Sort, mà còn thực hiện việc duyệt ngược lại từ cuối đến đầu, giúp thuật toán có thể "chuyển động" cả hai chiều và giảm số lần cần phải duyệt qua. Mỗi lần "lặp qua" danh sách, thuật toán sẽ thay đổi vị trí các phần tử lớn (hoặc nhỏ, tùy vào chiều duyệt) ra ngoài, và sau đó đổi chiều duyệt để di chuyển các phần tử còn lại.
+
+\subsubsection{Các bước hoạt động}
+Xét mảng A như sau: 
+\begin{center}
+   A = \{5, 9, 0, 3, 7\} 
+\end{center} 
+Dưới đây là các bước thực hiện thuật toán:
+
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+Vòng lặp & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hline
+1 & \{ | \textcolor{red}{5, 9}, 0, 3, 7 | \} & 5 và 9 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1 & \{ | 5, \textcolor{red}{9, 0}, 3, 7 | \} & 9 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ | 5, 0, \textcolor{red}{9, 3}, 7 | \} & 9 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ | 5, 0, 3, \textcolor{red}{9, 7} | \} & 9 và 7 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ | 5, 0, 3, 7 | 9 \} & \begin{tabular}[c]{@{}l@{}}Hoàn thành việc duyệt xuôi từ đầu về cuối, lúc này thêm 9 vào \\ phần đã sắp xếp ở sau và bắt đầu duyệt theo thứ tự ngược lại.\end{tabular} \\ \hline
+1 & \{ | 5, 0, \textcolor{red}{3, 7} | 9 \} & 3 và 7 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1 & \{ | 5, \textcolor{red}{0, 3}, 7 | 9\} & 0 và 3 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1 & \{ | \textcolor{red}{5, 0}, 3, 7 | 9\} & 5 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ 0 | 5, 3, 7 | 9\} & \begin{tabular}[c]{@{}l@{}}Hoàn thành việc duyệt ngược từ cuối về đầu, lúc này \\ thêm 0 vào phần đã sắp xếp ở trước. Kết thúc lần lặp 1.\end{tabular} \\ \hline
+2 & \{ 0 | \textcolor{red}{5, 3}, 7 | 9\} & 5 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+2 & \{ 0 | 3, \textcolor{red}{5, 7} | 9\} & 5 và 7 đang đứng đúng vị trí, tiếp tục. \\ \hline
+2 & \{ 0 | 3, 5 | 7, 9\} & \begin{tabular}[c]{@{}l@{}}Hoàn thành việc duyệt xuôi từ đầu về cuối, lúc này thêm 7 vào \\ phần đã sắp xếp ở sau và bắt đầu duyệt theo thứ tự ngược lại.\end{tabular} \\ \hline
+2 & \{ 0 | \textcolor{red}{3, 5} | 7, 9\} & 3 và 5 đang đứng đúng vị trí, tiếp tục \\ \hline
+2 & \{ 0,  3 | 5 | 7, 9\} & \begin{tabular}[c]{@{}l@{}}Ta hoàn thành việc duyệt ngược từ cuối về đầu, lúc này thêm 3 \\ vào phần đã sắp xếp ở trước.
+Ta kết thúc lần lặp 2. \end{tabular} \\ \hline
+3 & \{ 0,  3 | | 5, 7, 9\} & \begin{tabular}[c]{@{}l@{}}Hoàn thành việc duyệt xuôi từ đầu về cuối, lúc này thêm 5 vào \\ phần đã sắp xếp ở sau. Lúc này ngừng thuật toán vì mảng đã \\ sắp xếp.\end{tabular} \\ \hline
+\end{tabular}%
+}
+\caption{Các bước thực hiện Shaker Sort}
+\end{table}
+
+\textcolor{magenta}{Chú thích}: Hai phần tử có màu đỏ chính là hai phần tử đang được so sánh. Ký tự “ | ” để phân cách phần đã sắp xếp và chưa sắp xếp của mảng, sẽ có 2 ký tự “ | ” vì sẽ có 2 phần đã sắp xếp (là phần đầu mảng và cuối mảng).
+
+\subsubsection{Mã giả}
+ 
+\begin{algorithm}[H]
+\caption{Shaker Sort}
+\label{alg:shaker-sort}
+\begin{algorithmic}
+
+\Require $A$ is an array of size $n$
+\Function {shaker-sort}{\textit{A}, \textit{n}}
+\State $left \gets 0$ \Comment{Set the left boundary of the array}
+\State $right \gets n-1$ \Comment{Set the right boundary of the array}
+\State $swapped \gets True$ \Comment{Initialize the swapped flag}
+
+\While{$left < right$ and $swapped$} \State \Comment{Continue sorting until the boundaries cross or no swaps occurred}
+    \State $swapped \gets False$ \Comment{Reset the swapped flag for the current pass}
+    \For{$i = left$ to $right-1$} \Comment{Traverse from left to right}
+        \If{$A[i] > A[i+1]$} \Comment{If the current element is greater than the next element}
+            \State Swap $A[i]$ and $A[i+1]$ \Comment{Swap if the elements are in the wrong order}
+            \State $swapped \gets True$ \Comment{Set the swapped flag}
+        \EndIf
+    \EndFor
+    \State $right \gets right - 1$ \Comment{Decrease the right boundary after the forward pass}
+
+    \If{$swapped$} \Comment{Check if any swaps occurred in the forward pass}
+        \State $swapped \gets False$ \Comment{Reset the swapped flag for the backward pass}
+        \For{$i = right$ to $left+1$} \Comment{Traverse from right to left}
+            \If{$A[i] < A[i-1]$} \Comment{If the current element is less than the previous element}
+                \State Swap $A[i]$ and $A[i-1]$ \Comment{Swap if the elements are in the wrong order}
+                \State $swapped \gets True$ \Comment{Set the swapped flag}
+            \EndIf
+        \EndFor
+        \State $left \gets left + 1$ \Comment{Increase the left boundary after the backward pass}
+    \EndIf
+
+\EndWhile
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsubsection{Độ phức tạp}
+
+\paragraph{Độ phức tạp thời gian}\cite{shaker_sort_cite}
+
+\begin{itemize}
+    \item Trong trường hợp xấu nhất: Đối với một mảng có n phần tử, thuật toán Shaker Sort sẽ duyệt qua mảng nhiều lần. Trong mỗi lần duyệt, thuật toán sẽ thực hiện $n$ phép so sánh và hoán đổi, do đó độ phức tạp trong trường hợp xấu nhất là: $O(n^2)$.
+    \item Trong trường hợp trung bình: Cũng có độ phức tạp tương tự, khoảng $O(n^2)$, vì thuật toán vẫn phải thực hiện nhiều hoán đổi trong mỗi lần duyệt.
+    \item Trong trường hợp tốt nhất: Nếu mảng đã được sắp xếp, thuật toán sẽ chỉ thực hiện một lần duyệt từ trái sang phải và từ phải sang trái, nên độ phức tạp sẽ là $O(n)$.
+\end{itemize}
+
+\paragraph{Độ phức tạp không gian}
+
+Shaker Sort chỉ sử dụng một vài biến phụ để lưu trữ chỉ số trái phải và không cần bộ nhớ phụ trợ ngoài mảng ban đầu, vì vậy độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
+
+\subsubsection{Nhận xét}
+
+\paragraph{Tính ổn định} Tương tự như Bubble Sort, khi so sánh và hoán đổi các phần tử, nếu hai phần tử có giá trị bằng nhau thì không bị hoán đổi, do đó, thứ tự ban đầu của hai phần tử này vẫn được bảo tồn trong quá trình sắp xếp. Vậy Shaker Sort là một thuật toán sắp xếp ổn định.
+
+% \paragraph{Cải tiến}
+
+% Cải tiến bằng cách thêm 1 cờ hiệu (flag) để có thể dừng sớm khi không có hoán đổi nào xảy ra. Lúc này độ phức tạp thời gian trong trường hợp tốt nhất là $\Omega(n)$.

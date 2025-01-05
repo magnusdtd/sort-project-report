@@ -1,0 +1,85 @@
+\subsection{Insertion sort}
+
+\subsubsection{Ý tưởng}
+
+Thuật toán sắp xếp chèn (Insertion Sort) cũng chia mảng thành hai phần tương tự như Selection Sort: phần đã sắp xếp và phần chưa sắp xếp. Thuật toán thực hiện qua $n - 1$ giai đoạn, trong mỗi giai đoạn, nó lấy một phần tử từ phần \textbf{chưa sắp xếp} và tìm vị trí “phù hợp” trong phần \textbf{đã sắp xếp} để chèn vào, đảm bảo phần đã sắp xếp vẫn giữ được trật tự.
+
+\subsubsection{Các bước hoạt động}
+Xét mảng A như sau: 
+\begin{center}
+   A = \{5, 9, 0, 3, 7\} 
+\end{center} 
+Dưới đây là các bước thực hiện thuật toán:
+
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+Giai đoạn & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích}                                                                                              \\ \hline
+1 &
+  \{5, * | \textcolor{red}{9}, 0, 3, 7\} &
+  \begin{tabular}[c]{@{}l@{}}Với thuật toán sắp xếp chèn, phần đã được sắp xếp sẽ\\ bắt đầu với 1 phần tử, và phần tử tiếp theo sẽ được\\ thêm vào là phần tử 9, nó được chèn vào sau số 5\end{tabular} \\ \hline
+2         & \{*, 5, 9 | \textcolor{red}{0}, 3, 7\}        & \begin{tabular}[c]{@{}l@{}}Ở giai đoạn này, ta sẽ đưa phần tử 0 lên trước, và vị\\ trí thích hợp là trước số 5\end{tabular}  \\ \hline
+3         & \{0, *, 5, 9 | \textcolor{red}{3}, 7\}        & \begin{tabular}[c]{@{}l@{}}Ở giai đoạn này, ta sẽ đưa phần tử 3 lên trước, và vị\\ trí thích hợp là trước số 5.\end{tabular} \\ \hline
+4         & \{0, 3, 5, *, 9 | \textcolor{red}{7}\}        & \begin{tabular}[c]{@{}l@{}}Ở giai đoạn này, ta sẽ đưa phần tử 7 lên trước, và vị\\ trí thích hợp là trước số 9.\end{tabular} \\ \hline
+5         & \{0, 3, 5, 7, 9 |\}         & Tới đây thì thuật toán dừng                                                                                                  \\ \hline
+\end{tabular}%
+}
+\caption{Các bước thực hiện Insertion Sort}
+\end{table}
+
+\textcolor{magenta}{Chú thích}: Ký tự “ | ” để phân cách 2 phần đã sắp xếp và chưa sắp xếp của mảng. Phần tử có màu đỏ chính là phần tử sẽ được chèn lên phần đã được sắp xếp. Vị trí có ký tự “ * ” chính là vị trí thích hợp cho phần tử này.
+
+\subsubsection{Mã giả}
+ 
+\begin{algorithm}
+\caption{Insertion Sort}
+\label{alg:insertion-sort}
+\begin{algorithmic}
+
+\Require $A$ is an array of size $n$
+\Function {insertion-sort}{\textit{A}, \textit{n}}
+\For{$i \gets 1$ to $n-1$}
+    \State $key \gets A[i]$ \Comment{Store the current element}
+    \State $j \gets i - 1$
+    \While{$j \geq 0$ and $A[j] > key$}
+        \State $A[j+1] \gets A[j]$ \Comment{Shift element to the right}
+        \State $j \gets j - 1$
+    \EndWhile
+    \State $A[j+1] \gets key$ \Comment{Insert the element in the correct position}
+\EndFor
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Độ phức tạp}
+\paragraph{Độ phức tạp thời gian}
+Trường hợp tốt nhất ứng với mảng đầu vào đã sắp xếp rồi, mỗi lượt chỉ cần 1 phép so sánh, và như vậy tổng số phép so sánh được thực hiện là $n - 1$. Phân tích trong trường hợp tốt nhất, độ phức tạp tính toán của Insertion Sort là $\Omega(n)$.
+
+Trường hợp tệ nhất ứng với mảng đầu vào đã có thứ tự ngược với thứ tự cần sắp thì ở vị trí thứ $i$, cần có $i - 1$ phép so sánh và tổng số phép so sánh là: 
+
+$$(n-1) + (n-2) + ... + 1 = \frac{n* (n-1)}{2}$$ 
+
+Vậy phân tích trong trường hợp tốt nhất, độ phức tạp tính toán của Insertion Sort là $O(n^2)$.
+
+Trường hợp các giá trị xuất hiện một cách ngẫu nhiên, có thể coi xác suất xuất hiện mỗi giá trị là như nhau, thì có thể coi ở lượt thứ $i$, thuật toán cần trung bình $1 / 2$ phép so sánh và tổng số phép so sánh là: $$\frac{1}{2} + \frac{2}{2} + ... + \frac{n}{2} = \frac{(n + 1) * n}{4}$$
+Vậy phân tích trong trường hợp trung bình, độ phức tạp tính toán của Insertion Sort là $\Theta(n^2)$\footnote{Phần 1, mục 8.4, trang 91 \cite{hoang1999giaithuat}}.
+
+\paragraph{Độ phức tạp không gian}
+Thuật toán Insertion Sort chỉ tốn một số lượng hằng số các biến trung gian trong tìm kiếm tuần tự và hoán đổi giá trị các phần tử của mảng, nên độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
+
+
+\subsubsection{Nhận xét}
+
+Insertion Sort là thuật toán sắp xếp tốt đối với mảng đã gần được sắp xếp, nghĩa là mỗi phần từ đã đứng ở vị trí rất gần vị trí trong thứ tự cần sắp xếp\footnote{Mục 5.2.1, trang 195 \cite{dsa_nghia_2013}}. Ngoài ra, Insertion Sort là một thuật toán hiệu quả đối với mảng có kích thước nhỏ ($n <=20$)\footnote{Trang 315 \cite{dsa-analysis-cpp}}.
+
+\paragraph{Tính ổn định}
+Trong mỗi bước, Insertion Sort lấy một phần tử từ phần chưa sắp xếp và so sánh với các phần tử trong phần đã sắp xếp. Khi tìm thấy một vị trí phù hợp để chèn phần tử đó, thuật toán không thực hiện hoán đổi nếu gặp phần tử có giá trị bằng nhau, mà chỉ chèn phần tử mới sau các phần tử có cùng giá trị trong phần đã sắp xếp. Vì vậy, thứ tự tương đối giữa các phần tử bằng nhau được bảo toàn.
+Do đó, Insertion Sort là một thuật toán ổn định nhờ cách chèn giữ nguyên thứ tự của các phần tử bằng nhau. 
+
+\paragraph{Cải tiến}
+ Có thể cải tiến thuật toán sắp xếp chèn nhờ nhận xét: Khi mảng giá trị $A[1...i-1]$ đã được sắp xếp thì việc tìm vị trí chèn có thể làm bằng thuật toán tìm kiếm nhị phân và kỹ thuật chèn có thể làm bằng các lệnh dịch chuyển vùng nhớ cho nhanh. Tuy nhiên điều đó cũng không làm giảm đi độ phức tạp của thuật toán bởi trong trường hợp xấu nhất, phải mất $n - 1$ lần chèn và lần chèn thứ $i$ phải dịch lùi $i$ giá trị để tạo ra khoảng trống trước khi đẩy giá trị chèn vào chỗ trống đó\footnote{Phần 1, mục 8.4, trang 91 \cite{hoang1999giaithuat}}.
+

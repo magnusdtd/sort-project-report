@@ -1,0 +1,74 @@
+\documentclass[12pt]{article}
+
+\usepackage{hcmus-report-template}
+
+% Disable indentation on new paragraphs
+\setlength{\parindent}{0pt}
+
+% Line spacing 1.5
+\renewcommand{\baselinestretch}{1.5}
+
+% Optional: graphic path
+% \graphicspath{PATH_TO_GRAPHIC_FOLDER}
+
+% To use Times font family, uncomment this row
+% \usepackage{mathptmx}
+
+% To use roman section / subsection, uncomment these rows
+% \renewcommand{\thesection}{\Roman{section}}
+% \renewcommand{\thesubsection}{\thesection.\Roman{subsection}}
+
+% Define course name, report name and report title.
+\newcommand{\coursename}{Cấu trúc dữ liệu và giải thuật}
+\newcommand{\reportname}{Các thuật toán sắp xếp}
+\newcommand{\reporttitle}{Báo cáo đồ án môn học}
+
+\newcommand{\studentname}{
+    Đàm Tiến Đạt (23120118) \\ 
+    Huỳnh Cung (23120115) \\
+    Võ Hoàng Danh (23120117) \\
+    Nguyễn Ngọc Minh Tuấn (23120102) \\
+    Nguyễn Phạm Trí Viễn (23120107) \\
+}
+\newcommand{\teachername}{Trần Hoàng Quân}
+
+% Header
+\lhead{\reporttitle}
+\rhead{
+Trường Đại học Khoa học Tự nhiên - ĐHQG HCM\\
+\coursename
+}
+
+% Footer
+\newcommand{\leftfooter}{\LaTeX\ by \href{https://github.com/magnusdtd}{\textcolor{blue}{Đàm Tiến Đạt}}}
+\lfoot{\leftfooter}
+
+% ============ DOCUMENT ============
+\begin{document}
+
+\pagenumbering{roman}
+\input{content/title.tex}
+
+\tableofcontents
+\pagebreak
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{content/overview}
+
+\input{content/sorting_algorithm}
+
+
+\input{content/experimental_result}
+\input{content/project_structure}
+\input{content/conclusion}
+
+% References
+\input{ref/ref.tex}
+
+% Appendix
+\appendix
+% Add \cleardoublepage to move appendices to next page.
+% \input{appendix/appendix.tex}
+\end{document}

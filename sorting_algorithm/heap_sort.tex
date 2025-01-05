@@ -1,0 +1,128 @@
+\subsection{Heap sort}
+
+\subsubsection{Ý tưởng}
+Heap là một cấu trúc dữ liệu dạng cây nhị phân gần đầy đủ, trong đó các phần tử được sắp xếp theo một quy tắc thứ tự nhất định. Hai loại Heap phổ biến là Max-Heap và Min-Heap. Với Max-Heap, giá trị tại mỗi nút cha lớn hơn hoặc bằng giá trị tại các nút con, trong khi với Min-Heap, giá trị tại mỗi nút cha nhỏ hơn hoặc bằng giá trị tại các nút con.
+Heap Sort là một thuật toán sắp xếp dựa trên cấu trúc dữ liệu Heap. Max-heap được sử dụng để sắp xếp mảng tăng dần và Min-Heap được sử dụng để sắp xếp mảng giảm dần. Quá trình sắp xếp được thực hiện qua hai giai đoạn chính: 
+\begin{itemize}
+    \item Giai đoạn 1: Xây dựng Max-Heap/Min-Heap.
+    \item Giai đoạn 2: Lặp lại việc đem phần tử ở gốc Max-Heap/Min-Heap ra cuối/đầu mảng và điều chỉnh lại heap.
+\end{itemize}
+
+\subsubsection{Các bước hoạt động}
+Xét mảng A như sau: 
+\begin{center}
+   A = \{5, 9, 0, 3, 7\} 
+\end{center} 
+Dưới đây là các bước thực hiện giai đoạn 1 - xây dựng Max-Heap:
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+\multicolumn{1}{|r|}{Ví trí đang xét} & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hline
+1 & \{ 5, \textcolor{red}{9}, 0, \textcolor{blue}{3}, \textcolor{blue}{7} \} & \begin{tabular}[c]{@{}l@{}}Đầu tiên do 3 và 7 đều nhỏ hơn 9 nên không thay đổi \\ vị trí của các số trong mảng.\end{tabular} \\ \hline
+0 & \{ \textcolor{red}{5}, \textcolor{blue}{9}, \textcolor{blue}{0}, 3, 7 \} & Phần tử 9 lớn hơn 5 và 0 nên hoán đổi vị trí của 5 và 9. \\ \hline
+1 & \{ 9, \textcolor{red}{5}, 0, \textcolor{blue}{3}, \textcolor{blue}{7} \} & Phần tử 5 nhỏ hơn 7 nên hoán đổi 5 và 7. \\ \hline
+ & \{ 9, 7, 0, 3, 5 \} & Hoàn thành xây dựng Max-Heap. \\ \hline
+\end{tabular}%
+}
+\caption{Các bước xây dựng Max-Heap}
+\end{table}
+
+
+\textcolor{magenta}{Chú thích}: Phần tử màu đỏ chính là phần tử đang được xét, phần tử màu xanh chính là con của phần tử đang xét.
+
+Các bước thực hiện giai đoạn 2 cho mảng A:
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+\multicolumn{1}{|r|}{Lần lặp} & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hline
+1 & \{ \textcolor{red}{9}, 7, 0, 3, 5 | \} & \begin{tabular}[c]{@{}l@{}}Đầu tiên ta đem phần tử 9 về cuối mảng vào phần đã sắp xếp, \\ sau đó đem phần tử 5 lên thay thế phần tử 9.\end{tabular} \\ \hline
+1 & \{ \textcolor{red}{5}, \textcolor{blue}{7}, \textcolor{blue}{0}, 3 | 9 \} & Hoán vị phần tử 5 và 7 do 5 < 7. \\ \hline
+1 & \{ 7, \textcolor{red}{5}, 0, \textcolor{blue}{3} | 9 \} & Phần tử 5 và 3 đứng đúng vị trí nên không hoán đổi. \\ \hline
+2 & \{ \textcolor{red}{7}, 5, 0, \textcolor{red}{3} | 9 \} & \begin{tabular}[c]{@{}l@{}}Sau khi hiệu chỉnh xong, hoán vị phần tử 7 và 3. Đưa phần \\ tử 7 vào phần đã sắp xếp.\end{tabular} \\ \hline
+2 & \{\textcolor{red}{3}, \textcolor{blue}{5}, \textcolor{blue}{0} | 7, 9\} & Hoán vị phần tử 3 và 5 do 3 < 5. \\ \hline
+3 & \{\textcolor{red}{5}, 3, \textcolor{red}{0} | 7, 9\} & Hoán vị phần tử 5 và 0, đưa phần tử 5 vào phần đã sắp xếp. \\ \hline
+3 & \{\textcolor{red}{0}, \textcolor{blue}{3} | 5, 7, 9\} & Hoán vị phần tử 0 và 3 do 0 < 3. \\ \hline
+4 & \{\textcolor{red}{3}, \textcolor{red}{0} | 5, 7, 9\} & Hoán vị phần tử 3 và 0, đưa phần tử 3 vào phần đã sắp xếp. \\ \hline
+4 & \{\textcolor{red}{0} | 3, 5, 7, 9\} & Phần tử 0 đứng đúng vị trí. \\ \hline
+5 & \{0, 3, 5, 7, 9\} & \begin{tabular}[c]{@{}l@{}}Đưa phần tử 0 và\\ phần đã sắp xếp, kết thúc thuật toán\end{tabular} \\ \hline
+\end{tabular}%
+}
+\caption{Các bước sắp xếp sau khi xây dựng Max-Heap của Heap Sort}
+\end{table}
+
+\textcolor{magenta}{Chú thích}: Ký tự “ | ” để phân tách mảng thành 2 phần, phần Max-Heap và phần đã được sắp xếp. Phần tử màu đỏ chính là phần tử đang được xét, phần tử màu xanh chính là con của phần tử đang xét. 
+
+
+\subsubsection{Mã giả}
+ 
+\begin{algorithm}[H]
+\caption{Heap Sort}
+\label{alg:heap-sort}
+\begin{algorithmic}
+
+\Require $A$ is an array of size $n$
+
+\Function {max-heapify}{\textit{A}, \textit{i}, \textit{n}}
+\State $largest \gets i$
+\State $left \gets 2i + 1$, $right \gets 2i + 2$
+\If{$left < n$ \textbf{and} $A[left] > A[largest]$}
+    \State $largest \gets left$
+\EndIf
+\If{$right < n$ \textbf{and} $A[right] > A[largest]$}
+    \State $largest \gets right$
+\EndIf
+\If{$largest \neq i$}
+    \State Swap $A[i]$ and $A[largest]$
+    \Call{max-heapify}{A, largest, n}
+\EndIf
+\EndFunction \State
+
+\Function {build-max-heap}{\textit{A}, \textit{n}}
+\For{$i = \lfloor n/2 \rfloor - 1$ to $0$}
+    \Call{max-heapify}{A, i, n}
+\EndFor
+\EndFunction \State
+
+
+\Function {heap-sort}{\textit{A}, \textit{n}}
+\State \Call{build-max-heap}{A, n} \Comment{Build a max heap from the array}
+\For{$i = n-1$ to $1$}
+    \State Swap $A[0]$ and $A[i]$ \Comment{Move the largest element to the end}
+    \State $n \gets n - 1$ \Comment{Reduce the size of the heap}
+    \State \Call{max-heapify}{A, 0, n} \Comment{Restore the max-heap property}
+\EndFor
+\EndFunction
+
+
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsubsection{Độ phức tạp}
+\paragraph{Độ phức tạp thời gian} Phân tích các bước trong thuật toán:
+\begin{itemize}
+    \item Xây dựng Max-Heap: Để xây dựng Max-Heap từ mảng, gọi hàm heapify từ vị trí giữa mảng trở về đầu (từ $\left\lfloor \frac{n}{2} \right\rfloor$ đến 0). Mỗi lần gọi heapify có độ phức tạp là $O(\log{n})$ và gọi hàm này cho tất cả các phần tử trong mảng, dẫn đến tổng độ phức tạp là $O(n)$.
+    \item Sắp xếp: Sau khi xây dựng, thực hiện $n-1$ lần hoán đổi và mỗi lần hoán đổi lại gọi heapify. Heapify có độ phức tạp là $O(\log{n})$. Vậy độ phức tạp của bước sắp xếp sẽ là $O(n\log{n})$.
+\end{itemize}
+
+Kết luận về độ phức tạp thời gian:
+
+ \begin{itemize}
+    \item Trường hợp tốt nhất: $\Omega(n)$ (khi mảng có cách phần tử bằng nhau, thao tác hiệu chỉnh có độ phức tạp $O(1)$).
+    \item Trường hợp xấu nhất: $O(n\log{n})$
+    \item Trường hợp trung bình: $\Theta(n\log{n})$
+\end{itemize}
+
+\paragraph{Độ phức tạp không gian}
+
+Độ phức tạp không gian là $O(1)$ vì Heap Sort không sử dụng thêm bộ nhớ.
+
+\subsubsection{Nhận xét}
+
+\paragraph{Cải tiến} Một cách để cải tiến Heap Sort là sử dụng phương pháp Two-Swap. Two-Swap sắp xếp hai phần tử cùng một lúc cho mỗi lần xây dựng Heap. Phương pháp này giảm 30-50\% độ phức tạp thời gian của heapify trong việc xây dựng Heap cũng như trong việc sắp xếp các phần tử mảng. \cite{10.1007/978-3-319-11933-5_78}

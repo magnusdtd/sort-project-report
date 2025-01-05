@@ -1,0 +1,107 @@
+\subsection{Bubble sort}
+
+\subsubsection{Ý tưởng}
+
+Thuật toán sắp nổi bọt (Bubble Sort) sẽ duyệt qua mảng $n - 1$ lần, với mỗi lần duyệt, nếu thấy 2 phần tử kề nhau mà phần tử trước lớn hơn phần tử sau thì thuật toán sẽ hoán vị 2 phần tử đó cho nhau. Sau mỗi lần duyệt thì phần tử lớn nhất hiện tại sẽ được đưa về cuối mảng, và không duyệt phần tử này vào lần sau.
+
+\subsubsection{Các bước hoạt động}
+Xét mảng A như sau: 
+\begin{center}
+   A = \{5, 9, 0, 3, 7\} 
+\end{center} 
+Dưới đây là các bước thực hiện thuật toán:
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+Vòng lặp & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hline
+1 & \{ \textcolor{red}{5, 9}, 0, 3, 7 | \} & 5 và 9 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1 & \{ 5, \textcolor{red}{9, 0}, 3, 7 | \} & 9 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ 5, 0, \textcolor{red}{9, 3}, 7 | \} & 9 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ 5, 0, 3, \textcolor{red}{9, 7} | \} & 9 và 7 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1 & \{ 5, 0, 3, 7 | 9 \} & \begin{tabular}[c]{@{}l@{}}Kết thúc lần lặp đầu tiên ở đây, 9 là phần tử lớn nhất \\ đã được đưa về cuối dãy.\end{tabular} \\ \hline
+2 & \{ \textcolor{red}{5, 0}, 3, 7 | 9 \} & 5 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+2 & \{ 0, \textcolor{red}{5, 3}, 7 | 9\} & 5 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+2 & \{ 0, 3, \textcolor{red}{5, 7} | 9\} & 5 và 7 đang đứng đúng vị trí, tiếp tục. \\ \hline
+2 & \{ 0, 3, 5, | 7 , 9\} & Kết thúc vòng lặp thứ 2 ở đây \\ \hline
+3 & \{ \textcolor{red}{0, 3}, 5, | 7 , 9\} & 0 và 3 đang đứng đúng vị trí, tiếp tục. \\ \hline
+3 & \{ 0, \textcolor{red}{3, 5} | 7 , 9\} & 3 và 5 đang đứng đúng vị trí, tiếp tục. \\ \hline
+3 & \{ 0, 3 | 5, 7 , 9\} & Kết thúc vòng lặp thứ 3 ở đây \\ \hline
+4 & \{ \textcolor{red}{0, 3} | 5, 7 , 9\} & 0 và 3 đang đứng đúng vị trí, tiếp tục. \\ \hline
+4 & \{ | 0, 3, 5, 7 , 9\} & Thuật toán kết thúc \\ \hline
+\end{tabular}%
+}
+\caption{Các bước thực hiện Bubble Sort}
+
+\end{table}
+
+% \begin{table}[H]
+% \centering
+% \resizebox{\columnwidth}{!}{%
+% \begin{tabular}{|c|l|l|}
+% \hline
+% Vòng lặp & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hline
+% 1 & \{ \textcolor{red}{5, 9}, 0, 3, 7 | \} & 5 và 9 đang đứng đúng vị trí, tiếp tục. \\ \hline
+% 1 & \{ 5, \textcolor{red}{9, 0}, 3, 7 | \} & 9 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+% 1 & \{ 5, 0, \textcolor{red}{9, 3}, 7 | \} & 9 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+% 1 & \{ 5, 0, 3, \textcolor{red}{9, 7} | \} & 9 và 7 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+% 1 & \{ 5, 0, 3, 7 | 9 \} & \begin{tabular}[c]{@{}l@{}}Kết thúc lần lặp đầu tiên ở đây, 9 là phần tử lớn nhất \\ đã được đưa về cuối dãy.\end{tabular} \\ \hline
+% 2 & \{ \textcolor{red}{5, 0}, 3, 7 | 9 \} & 5 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+% 2 & \{ 0, \textcolor{red}{5, 3}, 7 | 9\} & 5 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+% 2 & \{ 0, 3, \textcolor{red}{5, 7} | 9\} & 5 và 7 đang đứng đúng vị trí, tiếp tục. \\ \hline
+% 2 & \{ 0, 3, 5, | 7 , 9\} & Kết thúc vòng lặp thứ 2 ở đây \\ \hline
+% 3 & \{ \textcolor{red}{0, 3}, 5, | 7 , 9\} & 0 và 3 đang đứng đúng vị trí, tiếp tục. \\ \hline
+% 3 & \{ 0, \textcolor{red}{3, 5} | 7 , 9\} & 3 và 5 đang đứng đúng vị trí, tiếp tục. \\ \hline
+% 3 & \{ 0, 3 | 5, 7 , 9\} & Kết thúc vòng lặp thứ 3 ở đây \\ \hline
+% 4 & \{ \textcolor{red}{0, 3} | 5, 7 , 9\} & 0 và 3 đang đứng đúng vị trí, tiếp tục. \\ \hline
+% 4 & \{ | 0, 3, 5, 7 , 9\} & Thuật toán kết thúc \\ \hline
+% \end{tabular}%
+% }
+% \caption{Các bước thực hiện Bubble Sort}
+
+% \end{table}
+
+\textcolor{magenta}{Chú thích}: Hai phần tử có màu đỏ chính là hai phần tử đang được so sánh. Ký tự “ | ” để phân chia phần được đã sắp xếp và chưa được sắp xếp.
+
+\subsubsection{Mã giả}
+ 
+\begin{algorithm}[H]
+\caption{Bubble Sort}
+\label{alg:bubble-sort}
+\begin{algorithmic}
+
+\Require $A$ is an array of size $n$
+\Function {bubble-sort}{\textit{A}, \textit{n}}
+\For {$i = 1$ to $n-1$} \Comment{Outer loop for each pass}
+    \For {$j = 0$ to $n-i-1$} \Comment{Inner loop for comparing adjacent elements}
+        \If{$A[j] > A[j+1]$} \Comment{Check the order of two adjacent elements}
+            \State Swap $A[j]$ and $A[j+1]$ \Comment{Swap if elements are in the wrong order}
+        \EndIf
+    \EndFor
+\EndFor
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Độ phức tạp}
+ 
+\paragraph{Độ phức tạp thời gian}
+
+Đối với thuật toán sắp xếp nổi bọt, có thể coi phép toán tích cực là phép so sánh $A[j] > A[j + 1]$. Và số lần thực hiện phép so sánh này là:
+$$(n-1)+(n-2)+...+1 = \frac{n(n-1)}{2}$$
+Vậy thuật toán sắp xếp nổi bọt cũng có độ phức tạp là $O(n^2)$. Bất kể tình trạng dữ liệu vào như thế nào\footnote{Phần 1, mục 8.2, trang 90 \cite{hoang1999giaithuat}}. 
+
+\paragraph{Độ phức tạp không gian}
+Thuật toán Bubble Sort chỉ tốn một số lượng hằng số các biến trung gian trong tìm kiếm tuần tự và hoán đổi giá trị các phần tử của mảng, nên độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
+
+
+\subsubsection{Nhận xét}
+
+Trong Bubble Sort, khi so sánh hai phần có giá trị bằng nhau, thuật toán không hoán đổi hai phần tử này. Do đó, thứ tự của các phần tử có giá trị bằng nhau vẫn được bảo toàn trong quá trình sắp xếp. Vậy Bubble Sort là một thuật toán sắp xếp ổn định.
+
+\paragraph{Cải tiến}
+Một cải tiến cho thuật toán Bubble Sort là dừng sớm nếu mảng đã được sắp xếp hoàn toàn trong một vòng lặp. Điều này giúp giảm số lần so sánh và hoán đổi, từ đó cải thiện hiệu suất trong những trường hợp mảng gần như đã sắp xếp sẵn.
+Một cải tiến khác là Shaker Sort ở mục \ref{subsec:shaker-sort}.

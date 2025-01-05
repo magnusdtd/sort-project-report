@@ -1,0 +1,37 @@
+\section{Tổ chức mã nguồn}
+
+Các thuật toán tiến hành trong bài báo cáo này được tổ chức thành các thư mục
+\begin{itemize}
+    \item \textbf{sorting-algorithm}: Gồm các file chứa các hàm cho từng thuật toán. Mỗi thuật toán sẽ có 2 phiên bản: một phiên bản gốc dùng để thực hiện sắp xếp và đo thời gian chạy, một phiên bản có thêm tham chiếu của biến đếm để tiến hành đếm các phép so sánh. 
+    \item \textbf{helper}:
+    \begin{itemize}
+        \item \textbf{DataGenerator.hpp}: Chứa cách hàm phát sinh dữ liệu.
+        \item \textbf{ReadWriteData.hpp}: Chứa hàm đọc  dữ liệu từ file và viết dữ liệu ra file.
+        \item \textbf{testFunction.hpp}: Chứa các hàm dùng để đo thời gian (đơn vị millisecond), so sánh hai thuật toán, in kết quả ra màn hình, ...
+    \end{itemize}
+    \item \textbf{main.cpp}: Xử lí các tham số dòng lệnh cho chương trình.
+    \item \textbf{run.cpp}: File này dùng để build file main.exe, sau đó dùng file này để chạy tất cả thuật toán trên tất cả trường hợp của dữ liệu. Sau mỗi trường hợp, chương trình sẽ viết kết quả ra file result.csv.
+\end{itemize}
+
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green},
+    stringstyle=\color{red},
+    numbers=none, % Disable line numbers
+    frame=single,
+}
+
+Câu lệnh dùng để build file main.exe:
+\begin{lstlisting}
+g++ -std=c++17 -Xlinker --stack -Xlinker 17179869184 -o main.exe main.cpp ./helper/DataGenerator.hpp ./helper/ReadWriteData.hpp ./helper/testFunction.hpp ./sorting-algorithm/selection-sort.hpp ./sorting-algorithm/insertion-sort.hpp ./sorting-algorithm/bubble-sort.hpp ./sorting-algorithm/shaker-sort.hpp ./sorting-algorithm/shell-sort.hpp ./sorting-algorithm/heap-sort.hpp ./sorting-algorithm/merge-sort.hpp ./sorting-algorithm/quick-sort.hpp ./sorting-algorithm/counting-sort.hpp ./sorting-algorithm/radix-sort.hpp ./sorting-algorithm/flash-sort.hpp
+\end{lstlisting}
+
+Câu lệnh dùng để build file run.exe, lấy kết quả cho bài báo cáo này:
+\begin{lstlisting}
+g++ run.cpp -std=c++17 -o run
+\end{lstlisting}
+
+
+

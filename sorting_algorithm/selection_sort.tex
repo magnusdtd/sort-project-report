@@ -1,0 +1,89 @@
+\subsection{Selection sort}
+
+\subsubsection{Ý tưởng}
+
+Thuật toán Selection Sort có ý tưởng khá đơn giản. Dãy đầu vào được chia thành hai phần: phần đã sắp xếp (thường nằm bên trái) và phần chưa sắp xếp (thường nằm bên phải). Thuật toán thực hiện $n - 1$ bước, tại mỗi bước, thuật toán tìm phần tử nhỏ nhất trong phần \textbf{chưa được sắp xếp} và chuyển nó sang \textbf{đã được sắp xếp}. Sau đó tăng kích thước của phần đã sắp xếp thêm 1 và giảm kích thước của phần chưa sắp xếp đi 1.
+
+\subsubsection{Các bước hoạt động}
+Xét mảng A như sau: 
+\begin{center}
+   A = \{5, 9, 0, 3, 7\} 
+\end{center} 
+Dưới đây là các bước thực hiện thuật toán:
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+Giai đoạn & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích}                                                                                              \\ \hline
+1 &
+  \{| 5, 9, \textcolor{red}{0}, 3, 7\} &
+  \begin{tabular}[c]{@{}l@{}}Ban đầu phần đã được sắp xếp không có gì, và phần \\ tử bé nhất của phần chưa sắp là 0, đem phần tử 0 \\ lên trước và tăng độ dài của phần được sắp xếp lên\end{tabular} \\ \hline
+2         & \{0 | 5, 9, \textcolor{red}{3}, 7\}        & \begin{tabular}[c]{@{}l@{}}Bây giờ phần tử bé nhất của phần chưa sắp là 3, \\đem 3 lên phần đã được sắp xếp\end{tabular}  \\ \hline
+3         & \{0, 3 | \textcolor{red}{5}, 9, 7\}        & \begin{tabular}[c]{@{}l@{}}Bây giờ phần tử bé nhất của phần chưa sắp là 5, \\đem 5 lên phần đã được sắp xếp\end{tabular} \\ \hline
+4         & \{0, 3, 5 | 9, \textcolor{red}{7}\}        & \begin{tabular}[c]{@{}l@{}}Bây giờ phần tử bé nhất của phần chưa sắp là 7, \\ đem 7 lên phần đã được sắp xếp\end{tabular} \\ \hline
+5         & \{0, 3, 5, 7 | 9\}         & \begin{tabular}[c]{@{}l@{}}Tới đây thì thuật toán dừng, không cần đưa phần \\ tử 9 lên trước vì nó đã ở đúng vị trí  \end{tabular}                                         \\ \hline
+\end{tabular}%
+}
+\caption{Các bước thực hiện Selection Sort}
+\end{table}
+
+\textcolor{magenta}{Chú thích}: Ký tự “ | ” để phân cách 2 phần đã sắp xếp và chưa sắp xếp của mảng. Phần
+tử có màu đỏ chính là phần tử nhỏ nhất của phần chưa được sắp xếp.
+
+\subsubsection{Mã giả}
+ 
+\begin{algorithm}
+\caption{Selection Sort}
+\label{alg:selection-sort}
+\begin{algorithmic}
+
+\Require $A$ is an array of size $n$
+\Function {selection-sort}{\textit{A}, \textit{n}}
+\For{$i \gets 0$ to $n-2$}
+    \State $minIndex \gets i$ \Comment{Assume the current element is the smallest}
+    \For{$j \gets i+1$ to $n-1$}
+        \If{$A[j] < A[minIndex]$}
+            \State $minIndex \gets j$ \Comment{Update the index of the smallest element}
+        \EndIf
+    \EndFor
+    \State Swap $A[i]$ and $A[minIndex]$ \Comment{Place the smallest element at position $i$}
+\EndFor
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsubsection{Độ phức tạp}
+
+\paragraph{Độ phức tạp thời gian}
+Vòng lặp thứ $i$ thực hiện tìm kiếm phần tử nhỏ nhất của phần chưa được sắp xếp (mảng con $A[i,n]$) bằng cách tìm kiếm tuần tự nên tốn $(n-i)$ phép so sánh\footnote{Phần 1, mục 8.2, trang 90 \cite{hoang1999giaithuat}
+}.
+$$f(n) = 1 + 2 + ... + (n-1) = \frac{n(n-1)}{2} \in O(n^2).$$ 
+
+Chi phí này luôn như nhau không phụ thuộc vào giá trị ban đầu của các phần tử trong mảng.
+
+Do đó độ phức tạp thời gian là\footnote{Mục 5.2.2, trang 196 \cite{dsa_nghia_2013}}:
+
+\begin{itemize}
+    \item Trường hợp tốt nhất: $\Omega(n^2)$ (0 đổi chỗ và $\frac{n^2}{2}$ phép so sánh)
+    \item Trường hợp tệ nhất: $O(n^2)$ ($n-1$ đổi chỗ và $\frac{n^2}{2}$ phép so sánh)
+    \item Trường hợp trung bình: $\Theta(n^2)$ ($O(n)$ đổi chỗ và $\frac{n^2}{2}$ phép so sánh)
+\end{itemize}
+
+
+\paragraph{Độ phức tạp không gian}
+Thuật toán Selection Sort chỉ tốn một số lượng hằng số các biến trung gian trong tìm kiếm tuần tự và hoán đổi giá trị các phần tử của mảng, nên độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
+
+ 
+
+\subsubsection{Nhận xét}
+
+Ưu điểm nội bật của Selection Sort là số phép đổi chỗ ít. Điều này có ý nghĩa nếu như việc đổi chỗ là tốn kém\footnote{Mục 5.2.2, trang 196 \cite{dsa_nghia_2013}}. 
+
+
+\paragraph{Tính ổn định} Vì Selection Sort hoạt động dựa trên việc hoán đổi các phần tử không nằm cạnh nhau), nên nó không đảm bảo thứ tự tương đối của các phần tử có giá trị bằng nhau, và do đó không phải là một thuật toán ổn định.
+
+
+\paragraph{Cải tiến} Một cách cải tiến thuật toán này chính là ở mỗi vòng lặp, thay vì chỉ đưa phần tử nhỏ nhất ra trước, đưa thêm phần tử lớn nhất ra phía sau. Mặc dù cải tiến này không giảm độ phức tạp của thuật toán nhưng có thể thấy rằng việc cải tiến này giúp giảm thời gian chạy đi vì số vòng lặp chỉ còn $\frac{n}{2}$ thay vì $n - 1$ vòng lặp như ban đầu.

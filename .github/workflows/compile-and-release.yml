@@ -1,0 +1,41 @@
+name: Compile and Release LaTeX document
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
+        with: 
+          working_directory: ${{ vars.WORKING_DIRECTORY }}
+          root_file: ${{ vars.ROOT_TEX_FILE }}
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@vl
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+
+      - name: Upload release artifact
+        id: upload-release-artifact
+        uses: actions/upload-release-asset@vl
+        env:
+          GITHUB TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url}}
+          asset path: ./${{ vars.WORKING DIRECTORY }}/${{ vars.ROOT_PDF_FILE }}
+          asset_name: ${{ vars. ASSET_PDF_FILE }}
+          asset_content_type: pdf

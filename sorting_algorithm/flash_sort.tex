@@ -1,0 +1,143 @@
+\subsection{Flash sort}
+
+\subsubsection{Ý tưởng}
+
+Flash Sort là một thuật toán sắp xếp không dựa trên so sánh các phần tử. Nó dựa trên sự phân bố của dữ liệu, tương tự như Counting Sort nhưng có thể áp dụng cho dữ liệu số thực. Flash Sort kết hợp ý tưởng phân hoạch của Counting Sort để chia dữ liệu thành các lớp, sau đó sử dụng Insertion Sort để sắp xếp nội bộ mỗi lớp. Thuật toán có 3 giai đoạn chính:
+
+\begin{itemize}
+    \item Phân lớp: Chia dữ liệu thành các lớp dựa trên giá trị của phần tử.
+    \item Phân hoạch và hoán vị: Đưa các phần tử vào đúng lớp của chúng.
+    \item Sắp xếp nội bộ: Sử dụng Insertion Sort để sắp xếp các phần tử trong mỗi lớp.
+\end{itemize}
+
+
+
+\subsubsection{Các bước hoạt động}
+Chúng ta sẽ thực hiện thuật toán Flash Sort trên mảng:  
+\[
+A = \{5, 9, 0, 3, 7\}
+\]
+
+Bước 1: Tính \textit{min} và \textit{max}
+\[
+\text{min} = 0, \quad \text{max} = 9
+\]
+
+Bước 2: Tạo các nhóm (class). Chọn số lượng nhóm, \( m = 3 \).  
+Chỉ số nhóm \( k \) được tính theo công thức:
+\[
+k = \left\lfloor m \cdot \frac{A[i] - \text{min}}{\text{max} - \text{min}} \right\rfloor
+\]
+với \( m = 3 \), \( \text{min} = 0 \), và \( \text{max} = 9 \).
+
+Bước 3: Gán các phần tử vào nhóm. Tính chỉ số nhóm \( k \) cho từng phần tử trong \( A \):
+
+\[
+\begin{array}{|c|c|}
+\hline
+\text{Phần tử } (A[i]) & \text{Chỉ số nhóm } (k) \\
+\hline
+5 &  1 \\
+9 &  2 \\
+0 &  0 \\
+3 &  1 \\
+7 &  2 \\
+\hline
+\end{array}
+\]
+
+Phân phối các nhóm:
+\[
+\text{Nhóm 0: } \{0\}, \quad \text{Nhóm 1: } \{5, 3\}, \quad \text{Nhóm 2: } \{9, 7\}
+\]
+
+Bước 4: Sắp xếp lại các phần tử
+Sắp xếp lại \( A \) bằng cách nhóm các phần tử vào từng nhóm:
+\[
+A = \{0, 5, 3, 9, 7\}
+\]
+
+Bước 5: Sắp xếp chèn trong từng nhóm
+\begin{itemize}
+    \item Nhóm 0: \(\{0\}\) đã được sắp xếp.  
+    \item Nhóm 1: \(\{5, 3\}\):  
+  Thực hiện sắp xếp chèn:
+  \[
+  \{5, 3\} \to \{3, 5\}
+  \]
+    \item Nhóm 2: \(\{9, 7\}\):  
+  Thực hiện sắp xếp chèn:
+  \[
+  \{9, 7\} \to \{7, 9\}
+  \]
+\end{itemize}
+
+Bước 6: Kết hợp các nhóm đã sắp xếp
+Gộp các nhóm đã được sắp xếp để có mảng kết quả cuối cùng:
+\[
+A = \{0, 3, 5, 7, 9\}
+\]
+
+
+\subsubsection{Mã giả}
+
+
+ 
+\begin{algorithm}[H]
+\caption{Flash Sort}
+\label{alg:flash-sort}
+\begin{algorithmic}
+
+
+\Require $A$ is an array of size $n$
+\Function {flash-sort}{\textit{A}, \textit{n}}
+    \State Compute $min$ and $max$ of $A$
+    \If{$min = max$}
+        \State \Return $A$ \Comment{All elements are identical; array is sorted}
+    \EndIf
+    \State Create $m$ classes \Comment{Typically $m = \alpha \cdot n$ where $\alpha \in (0, 1]$ is a constant}
+    \State Initialize an array $L$ of size $m$ to store class boundaries
+    \For{$i = 0$ to $n-1$}
+        \State Compute the class index $k$ for $A[i]$:
+       $$k = \left\lfloor m \cdot \frac{A[i] - min}{max - min} \right\rfloor$$
+        \State Assign $A[i]$ to class $k$ and update $L[k]$
+    \EndFor
+    \State Rearrange elements of $A$ such that elements in each class are grouped together
+    \For{each class $k$ in $L$}
+        \State Perform Insertion Sort on elements in class $k$
+    \EndFor
+    \State \Return $A$
+\EndFunction
+
+
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsubsection{Độ phức tạp}
+
+
+\paragraph{Độ phức tạp thời gian}
+Phân tích các bước trong thuật toán:
+\begin{itemize}
+    \item Bước phân lớp có độ phức tạp thời gian: \( O(n) \).
+\item Bước hoán vị cũng có độ phức tạp thời gian: \( O(n) \).
+\item Trong mỗi nhóm, thuật toán sử dụng sắp xếp chèn (Insertion Sort). Nếu mỗi nhóm chứa khoảng \( \frac{n}{m} \) phần tử, chi phí tổng cộng cho bước này là:
+\[
+O\left( m \cdot \left(\frac{n}{m}\right)^2 \right) = O\left(\frac{n^2}{m}\right).
+\]
+\end{itemize}
+
+Khi \( m = \alpha n \) (\( \alpha \) là một hằng số), độ phức tạp trở thành \( O(n) \).
+
+Do đó, độ phức tạp thời gian tổng cộng của thuật toán Flash Sort là \( O(n) \) cho các dữ liệu phân bố đồng đều, nhưng có thể giảm hiệu năng xuống \( O(n^2) \) với các phân bố dữ liệu không đồng đều.
+
+\paragraph{Độ phức tạp không gian}
+
+    Thuật toán cần thêm bộ nhớ để lưu ranh giới các nhóm hoặc số lượng phần tử trong mỗi nhóm. Do đó, độ phức tạp không gian là \( O(n) \).
+\subsubsection{Nhận xét}
+Flash Sort là thuật toán tốt đối với các mảng lớn có dữ liệu phân bố đồng đều và hiệu quả vượt trội so với nhiều thuật toán \( O(n \log n) \) (như Quicksort) trong các trường hợp thực tế. Tuy nhiên, hiệu năng của Flash Sort phụ thuộc nhiều vào phân bố dữ liệu. Hiệu quả kém đối với các phân bố không đồng đều. Cần tính toán trước \( \text{min} \) và \( \text{max} \), đồng thời cần lựa chọn số lượng nhóm \( m \) một cách phù hợp.
+
+
+\paragraph{Cải tiến} 
+Flash Sort tỏ ra không hiệu quả ở trường hợp tệ nhất khi tất cả các phần tử đều vào 1 lớp, cũng như thứ tự bị đảo ngược. Khi đó có thể thay thế một thuật toán khác như Merge Sort thể thay thế Insertion Sort trong trường hợp này.

@@ -1,0 +1,100 @@
+\subsection{Shell sort}
+
+\subsubsection{Ý tưởng}
+Thuật toán Shell Sort là một thuật toán sắp xếp được phát triển bởi Donald Shell vào năm 1959. Đây là một cải tiến của thuật toán sắp xếp chèn (Insertion Sort), nhằm giảm thiểu số lần di chuyển phần tử khi danh sách chưa được sắp xếp gần như hoàn chỉnh.
+Nguyên lý hoạt động của shell sort là chia danh sách thành các nhóm con, dựa trên dãy khoảng cách $h_1, h_2, \dots, h_t$. Các phần tử trong mỗi nhóm được sắp xếp bằng cách sử dụng phương pháp Insertion Sort. Dãy khoảng cách thường được sử dụng là dãy do chính tác giả đề xuất: $h_1 = n / 2$, $h_i = h_{i + 1} / 2$.
+
+\subsubsection{Các bước hoạt động}
+Xét mảng A như sau: 
+\begin{center}
+   A = \{5, 9, 0, 3, 7\} 
+\end{center} 
+Dưới đây là các bước thực hiện thuật toán:
+
+\begin{table}[H]
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+Gap & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hline
+2   & \{ \textcolor{red}{5}, 9, \textcolor{red}{0}, 3, 7  \} & 5 và 0 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+2   & \{ 0, \textcolor{red}{9}, 5, \textcolor{red}{3}, 7  \} & 9 và 3 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+2   & \{ 0, 3, \textcolor{red}{5}, 9, \textcolor{red}{7}   \} & 5 và 7 đang đứng đúng vị trí, tiếp tục. \\ \hline
+2   & \{ 0, 3, 5, 9, 7  \} & \begin{tabular}[c]{@{}l@{}}Hoàn thành việc duyệt xuôi từ đầu về cuối, giảm \\ gap xuống còn 1.\end{tabular} \\ \hline
+1   & \{ \textcolor{red}{0, 3}, 5, 9, 7 \} & 0 và 3 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1   & \{ 0, \textcolor{red}{3, 5}, 9, 7  \} & 3 và 5 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1   & \{ 0, 3, \textcolor{red}{5, 9}, 7 \} & 5 và 9 đang đứng đúng vị trí, tiếp tục. \\ \hline
+1   & \{ 0, 3, 5, \textcolor{red}{9, 7}\} & 9 và 7 đang đứng sai vị trí, hoán vị 2 phần tử này. \\ \hline
+1   & \{ 0, 3, 5, 7, 9 \} & \begin{tabular}[c]{@{}l@{}}Kết thúc thuật toán.\end{tabular} \\ \hline
+\end{tabular}%
+}
+\caption{Các bước thực hiện Shell Sort}
+\end{table}
+
+\textcolor{magenta}{Chú thích}: Phần tử màu đỏ chính là phần tử đang được xét.
+
+
+\subsubsection{Mã giả}
+ 
+\begin{algorithm}[H]
+\caption{Shell Sort}
+\label{alg:shell-sort}
+\begin{algorithmic}
+
+\Require $A$ is an array of size $n$
+\Function {shell-sort}{\textit{A}, \textit{n}}
+\State $gap \gets \lfloor n / 2 \rfloor$ \Comment{Initialize the gap value}
+\While{$gap > 0$} \Comment{Continue sorting while the gap is greater than 0}
+    \For{$i = gap$ to $n-1$} \Comment{Traverse the array starting from the gap index}
+        \State $temp \gets A[i]$ \Comment{Store the current element}
+        \State $j \gets i$
+        \While{$j \geq gap$ \textbf{and} $A[j-gap] > temp$} \Comment{Shift elements if out of order}
+            \State $A[j] \gets A[j-gap]$ \Comment{Move the element at index $j-gap$ to index $j$}
+            \State $j \gets j - gap$
+        \EndWhile
+        \State $A[j] \gets temp$ \Comment{Place the stored element in its correct position}
+    \EndFor
+    \State $gap \gets \lfloor gap / 2 \rfloor$ \Comment{Reduce the gap for the next iteration}
+\EndWhile
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+
+% ============================================================================
+\subsubsection{Độ phức tạp}
+
+\paragraph{Độ phức tạp thời gian} 
+Shell Sort hoạt động hiệu quả và cài đặt dễ dàng. Tuy nhiên độ phức tạp của thuật toán này khó để đánh giá một cách chặt chẽ.
+
+\textbf{Sau đây là phần chứng minh cho trường hợp tệ nhất}\footnote{Phần 7.4 Shell Sort, trang 298 \cite{dsa-analysis-cpp}}:
+
+Đầu tiên, chọn $n$ là một lũy thừa của 2. Điều này làm cho tất cả các $h_i$ đều chẵn, ngoại trừ $h_i$ cuối cùng, là 1. Bây giờ, chúng ta sẽ đưa vào một mảng với $n/2$ số lớn nhất ở các vị trí chẵn và $n/2$ số nhỏ nhất ở các vị trí lẻ. Vì tất cả các $h_i$ ngoại trừ $h_i$ cuối cùng đều chẵn, khi chúng ta đến lần lặp cuối cùng, $n/2$ số lớn nhất vẫn nằm ở tất cả các vị trí chẵn và $n/2$ số nhỏ nhất vẫn nằm ở tất cả các vị trí lẻ. Do đó, số thứ $i$ nhỏ nhất ($i\leq n/2$) nằm ở vị trí $2i - 1$ trước khi bắt đầu lần lặp cuối cùng. Khôi phục phần tử thứ $i$ về vị trí chính xác của nó đòi hỏi phải di chuyển nó $i-1$ khoảng trống trong mảng. Do đó, để chỉ đơn thuần đặt $n/2$ phần tử nhỏ nhất vào đúng vị trí sẽ yêu cầu ít nhất $\sum_{i=0}^{n/2 - 1}i=O(n^{2})$ công việc.
+
+ Như chúng ta đã quan sát trước đó, một lần lặp với $h_k$ bao gồm $h_k$ sắp xếp chèn của khoảng $n/h_k$ phần tử. Tổng chi phí của một lần lặp là $O(h_k(n/h_k)^2)=O(n^2/h_k).$ Cộng dồn qua tất cả các lần lặp cho giới hạn tổng là $O(\sum_{i=1}^{t}n^2/h_i)=O(n^2\sum_{i=1}^{t}1/h_i).$ Vì các $h_i$ tạo thành một chuỗi hình học với tỉ số chung là 2 và số hạng lớn nhất trong chuỗi là $h_1=1$, $\sum_{i=1}^{t}1/h_i<2$ Do đó chúng ta thu được giới hạn tổng là $O(n^2)$.
+
+Tóm lại, độ phức tạp thời gian của Shell Sort: 
+ \begin{itemize}
+    \item Trường hợp tốt nhất: $\Omega(n\log{n})$ 
+    \item Trường hợp xấu nhất: $O(n^2)$
+    \item Trường hợp trung bình: $\Theta(n\log{n})$
+\end{itemize}
+
+\paragraph{Độ phức tạp không gian}
+Độ phức tạp không gian sẽ là O(1)
+% ============================================================================
+
+
+\subsubsection{Nhận xét}
+Trong nhiều trường hợp, đặc biệt là với các mảng lớn và không được sắp xếp hoàn toàn, Shell Sort có thể hoạt động nhanh hơn đáng kể so với sắp xếp chèn. Thuật toán có cấu trúc rõ ràng và dễ hiểu, dễ dàng viết mã để thực hiện. 
+Độ phức tạp thời gian của Shell Sort phụ thuộc rất nhiều vào cách chọn dãy các giá trị bước nhảy. Mặc dù trong nhiều trường hợp, nó hoạt động rất tốt, nhưng trong một số trường hợp xấu nhất, độ phức tạp thời gian có thể lên đến $O(n^2)$.
+
+% \paragraph{Tính ổn định}
+
+
+\paragraph{Cải tiến}
+
+
+Có nhiều dãy khác được chứng minh là hiệu quả hơn so với dãy do tác giả đề xuất, giúp giảm độ phức tạp của thuật toán như: Hibbard, Sedgewick, Pratt... Ngoài ra, có thể cải tiến thuật toán sắp xếp chèn bằng cách sử dụng thuật toán khác như binary insertion sort để giảm số lần so sánh và hoán đổi.
+
