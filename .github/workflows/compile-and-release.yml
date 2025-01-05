@@ -15,12 +15,12 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with: 
-          working_directory: ${{ vars.WORKING_DIRECTORY }}
-          root_file: ${{ vars.ROOT_TEX_FILE }}
+          working_directory: .
+          root_file: main.tex
 
       - name: Create Release
         id: create_release
-        uses: actions/create-release@vl
+        uses: actions/create-release@v1
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -31,11 +31,11 @@ jobs:
 
       - name: Upload release artifact
         id: upload-release-artifact
-        uses: actions/upload-release-asset@vl
+        uses: actions/upload-release-asset@v1
         env:
-          GITHUB TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url}}
-          asset path: ./${{ vars.WORKING DIRECTORY }}/${{ vars.ROOT_PDF_FILE }}
-          asset_name: ${{ vars. ASSET_PDF_FILE }}
-          asset_content_type: pdf
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./main.pdf
+          asset_name: main.pdf
+          asset_content_type: application/pdf
