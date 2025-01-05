@@ -18,6 +18,9 @@ jobs:
           working_directory: .
           root_file: main.tex
 
+      - name: Rename PDF
+        run: mv main.pdf Report.pdf
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -26,8 +29,8 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          draft: true
-          prerelease: true
+          draft: True
+          prerelease: True
 
       - name: Set upload_url output
         run: echo "upload_url=${{ steps.create_release.outputs.upload_url }}" >> $GITHUB_ENV
