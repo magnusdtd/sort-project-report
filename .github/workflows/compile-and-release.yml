@@ -18,6 +18,9 @@ jobs:
           working_directory: .
           root_file: main.tex
 
+      - name: Rename PDF
+        run: mv main.pdf Report.pdf
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -29,13 +32,16 @@ jobs:
           draft: True
           prerelease: True
 
+      - name: Set upload_url output
+        run: echo "upload_url=${{ steps.create_release.outputs.upload_url }}" >> $GITHUB_ENV
+
       - name: Upload release artifact
         id: upload-release-artifact
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.magnus_token }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./main.pdf
-          asset_name: main.pdf
+          upload_url: ${{ env.upload_url }}
+          asset_path: ./Report.pdf
+          asset_name: Report.pdf
           asset_content_type: application/pdf
