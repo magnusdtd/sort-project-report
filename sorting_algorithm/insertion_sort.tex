@@ -56,19 +56,21 @@ Giai đoạn & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích
 \end{algorithm}
 
 \subsubsection{Độ phức tạp}
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
+
 Trường hợp tốt nhất ứng với mảng đầu vào đã sắp xếp rồi, mỗi lượt chỉ cần 1 phép so sánh, và như vậy tổng số phép so sánh được thực hiện là $n - 1$. Phân tích trong trường hợp tốt nhất, độ phức tạp tính toán của Insertion Sort là $\Omega(n)$.
 
 Trường hợp tệ nhất ứng với mảng đầu vào đã có thứ tự ngược với thứ tự cần sắp thì ở vị trí thứ $i$, cần có $i - 1$ phép so sánh và tổng số phép so sánh là: 
 
 $$(n-1) + (n-2) + ... + 1 = \frac{n* (n-1)}{2}$$ 
 
-Vậy phân tích trong trường hợp tốt nhất, độ phức tạp tính toán của Insertion Sort là $O(n^2)$.
+Vậy phân tích trong trường hợp tệ nhất, độ phức tạp tính toán của Insertion Sort là $O(n^2)$.
 
 Trường hợp các giá trị xuất hiện một cách ngẫu nhiên, có thể coi xác suất xuất hiện mỗi giá trị là như nhau, thì có thể coi ở lượt thứ $i$, thuật toán cần trung bình $1 / 2$ phép so sánh và tổng số phép so sánh là: $$\frac{1}{2} + \frac{2}{2} + ... + \frac{n}{2} = \frac{(n + 1) * n}{4}$$
 Vậy phân tích trong trường hợp trung bình, độ phức tạp tính toán của Insertion Sort là $\Theta(n^2)$\footnote{Phần 1, mục 8.4, trang 91 \cite{hoang1999giaithuat}}.
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
+
 Thuật toán Insertion Sort chỉ tốn một số lượng hằng số các biến trung gian trong tìm kiếm tuần tự và hoán đổi giá trị các phần tử của mảng, nên độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
 
 
@@ -76,10 +78,12 @@ Thuật toán Insertion Sort chỉ tốn một số lượng hằng số các bi
 
 Insertion Sort là thuật toán sắp xếp tốt đối với mảng đã gần được sắp xếp, nghĩa là mỗi phần từ đã đứng ở vị trí rất gần vị trí trong thứ tự cần sắp xếp\footnote{Mục 5.2.1, trang 195 \cite{dsa_nghia_2013}}. Ngoài ra, Insertion Sort là một thuật toán hiệu quả đối với mảng có kích thước nhỏ ($n <=20$)\footnote{Trang 315 \cite{dsa-analysis-cpp}}.
 
-\paragraph{Tính ổn định}
+\textbf{Tính ổn định}
+
 Trong mỗi bước, Insertion Sort lấy một phần tử từ phần chưa sắp xếp và so sánh với các phần tử trong phần đã sắp xếp. Khi tìm thấy một vị trí phù hợp để chèn phần tử đó, thuật toán không thực hiện hoán đổi nếu gặp phần tử có giá trị bằng nhau, mà chỉ chèn phần tử mới sau các phần tử có cùng giá trị trong phần đã sắp xếp. Vì vậy, thứ tự tương đối giữa các phần tử bằng nhau được bảo toàn.
 Do đó, Insertion Sort là một thuật toán ổn định nhờ cách chèn giữ nguyên thứ tự của các phần tử bằng nhau. 
 
-\paragraph{Cải tiến}
+\textbf{Cải tiến}
+
  Có thể cải tiến thuật toán sắp xếp chèn nhờ nhận xét: Khi mảng giá trị $A[1...i-1]$ đã được sắp xếp thì việc tìm vị trí chèn có thể làm bằng thuật toán tìm kiếm nhị phân và kỹ thuật chèn có thể làm bằng các lệnh dịch chuyển vùng nhớ cho nhanh. Tuy nhiên điều đó cũng không làm giảm đi độ phức tạp của thuật toán bởi trong trường hợp xấu nhất, phải mất $n - 1$ lần chèn và lần chèn thứ $i$ phải dịch lùi $i$ giá trị để tạo ra khoảng trống trước khi đẩy giá trị chèn vào chỗ trống đó\footnote{Phần 1, mục 8.4, trang 91 \cite{hoang1999giaithuat}}.
 
