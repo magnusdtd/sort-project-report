@@ -105,7 +105,8 @@ Các bước thực hiện giai đoạn 2 cho mảng A:
 
 
 \subsubsection{Độ phức tạp}
-\paragraph{Độ phức tạp thời gian} Phân tích các bước trong thuật toán:
+\textbf{Độ phức tạp thời gian} Phân tích các bước trong thuật toán:
+
 \begin{itemize}
     \item Xây dựng Max-Heap: Để xây dựng Max-Heap từ mảng, gọi hàm heapify từ vị trí giữa mảng trở về đầu (từ $\left\lfloor \frac{n}{2} \right\rfloor$ đến 0). Mỗi lần gọi heapify có độ phức tạp là $O(\log{n})$ và gọi hàm này cho tất cả các phần tử trong mảng, dẫn đến tổng độ phức tạp là $O(n)$.
     \item Sắp xếp: Sau khi xây dựng, thực hiện $n-1$ lần hoán đổi và mỗi lần hoán đổi lại gọi heapify. Heapify có độ phức tạp là $O(\log{n})$. Vậy độ phức tạp của bước sắp xếp sẽ là $O(n\log{n})$.
@@ -119,10 +120,12 @@ Kết luận về độ phức tạp thời gian:
     \item Trường hợp trung bình: $\Theta(n\log{n})$
 \end{itemize}
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
 
 Độ phức tạp không gian là $O(1)$ vì Heap Sort không sử dụng thêm bộ nhớ.
 
 \subsubsection{Nhận xét}
 
-\paragraph{Cải tiến} Một cách để cải tiến Heap Sort là sử dụng phương pháp Two-Swap. Two-Swap sắp xếp hai phần tử cùng một lúc cho mỗi lần xây dựng Heap. Phương pháp này giảm 30-50\% độ phức tạp thời gian của heapify trong việc xây dựng Heap cũng như trong việc sắp xếp các phần tử mảng. \cite{10.1007/978-3-319-11933-5_78}
+\textbf{Cải tiến} 
+
+Một cách để cải tiến Heap Sort là sử dụng phương pháp Two-Swap. Two-Swap sắp xếp hai phần tử cùng một lúc cho mỗi lần xây dựng Heap. Phương pháp này giảm 30-50\% độ phức tạp thời gian của heapify trong việc xây dựng Heap cũng như trong việc sắp xếp các phần tử mảng. \cite{10.1007/978-3-319-11933-5_78}

@@ -98,8 +98,9 @@ Xét mảng A như sau:
 
 
 \subsubsection{Độ phức tạp}
-\paragraph{Độ phức tạp thời gian}\footnote{Chương 7, Merge Sort, trang 307 \cite{dsa-analysis-cpp}}
-Gọi $T(n)$ là thời gian thực hiện của thuật toán khi được áp dụng lên một dãy dữ liệu có kích thước $n$.
+\textbf{Độ phức tạp thời gian}
+
+\footnote{Chương 7, Merge Sort, trang 307 \cite{dsa-analysis-cpp}} Gọi $T(n)$ là thời gian thực hiện của thuật toán khi được áp dụng lên một dãy dữ liệu có kích thước $n$.
 Giả sử $n$ là một lũy thừa của 2 (n có dạng $2^k$ với $k \in \mathbb{N}^*$), do đó luôn chia mảng ban đầu thành 2 nửa chẵn. Với $n = 1$, thời gian sắp xếp của Merge Sort là hằng số, kí hiệu là 1. Mặt khác, thời gian thực hiện Merge Sort cho $n$ số bằng thời gian thực hiện hai phép sắp xếp hợp nhất đệ quy có kích thước n/2, cộng với thời gian để hợp nhất, là tuyến tính. 
 
 Các phương trình sau đây nói chính xác điều này:
@@ -168,11 +169,14 @@ Kết luận về độ phức tạp thời gian:
     \item Trường hợp trung bình: $\Theta(n\log{n})$
 \end{itemize}
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
+
 Trong bước trộn hai dãy con của Merge Sort có sử dụng mảng phụ để lưu tạm thời các giá trị nên chi phí không gian của giải thuật này là $O(n)$.
 
 \subsubsection{Nhận xét}
 
 Merge Sort là một thuật toán sắp xếp hiệu quả và ổn định, phù hợp với các trường hợp yêu cầu giữ nguyên thứ tự của các phần tử có giá trị bằng nhau. Tuy nhiên, việc sử dụng đệ quy có thể ảnh hưởng đến hiệu suất thực tế. 
-\paragraph{Cải tiến}
+
+\textbf{Cải tiến}
+
 Một cách cải tiến đó là khử đệ quy (Iterative Merge Sort) giúp  giảm bộ nhớ sử dụng do không gọi đệ quy.

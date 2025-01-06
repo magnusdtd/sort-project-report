@@ -113,7 +113,8 @@ A = \{2, 3, 3, 4, 5, 6, 8\}
 
 
 \subsubsection{Độ phức tạp}
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
+
 \footnote{Mục 7.7.5 \cite{dsa-analysis-cpp}}Giả sử một pivot ngẫu nhiên và $T(0) = T(1) = 1$. Thời gian chạy của quicksort bằng thời gian chạy của hai lệnh gọi đệ quy cộng với thời gian tuyến tính dành cho phân vùng (lựa chọn pivot chỉ mất thời gian không đổi). Điều này đưa ra mối quan hệ quicksort cơ bản 
 
 \begin{equation}
@@ -166,6 +167,7 @@ Chúng ta cộng tất cả các phương trình trên lại và lưu ý rằng 
 Do đó giới hạn trường hợp tốt nhất là $O(n\log{n})$ cho Quick Sort.
 
 \subparagraph{3. Trường hợp trung bình}
+
 Giả sử rằng mỗi kích thước cho $A_1$ có khả năng xảy ra như nhau và do đó có xác suất là $\frac{1}{n}$. Giả sử này chỉ hợp lệ đối với cách chọn pivot và phân hoạch như trên. 
 
 Với giả định này, giá trị trung bình của $T(i)$, và do đó là $T(n - i - 1)$, là $\frac{1}{n} \sum_{j = 0}^{n - 1}T(j)$. Phương trình  (2.8.1) trở thành: 
@@ -215,7 +217,10 @@ Kết luận về độ phức tạp thời gian:
     \item Trường hợp xấu nhất: $O(n^2)$
     \item Trường hợp trung bình: $\Theta(n\log{n})$
 \end{itemize}
-\paragraph{Độ phức tạp không gian}
+
+
+\textbf{Độ phức tạp không gian}
+
 Quick Sort sử dụng số lượng hằng số các biến trung gian trong quá trình hoán đổi các phần tử lúc phân hoạch mảng, do đó độ phức tạp không gian là $O(1)$.
 
 
@@ -225,6 +230,7 @@ Quick Sort và Merge Sort là hai thuật toán sắp xếp nổi tiếng dựa 
 
 Trong thực tế, Quick Sort được sử dụng rộng rãi trong các thư viện sắp xếp của nhiều ngôn ngữ lập trình nhờ tốc độ nhanh và tính linh hoạt. Tuy nhiên, khi yêu cầu độ ổn định cao hoặc cần xử lý các tập dữ liệu lớn, Merge Sort vẫn là một lựa chọn đáng cân nhắc.
 
-\paragraph{Cải tiến}
+\textbf{Cải tiến}
+
 Để khắc phục hạn chế về việc chọn pivot của Quick Sort, nhiều phương pháp cải tiến đã được đề xuất như chọn pivot ngẫu nhiên, median-in-medians, . Ngoài ra, các biến thể của Quick Sort giúp cải thiện hiệu suất trong các trường hợp cụ thể như Quick Sort ba đường phân hoạch (chia mảng thành 3 phần), Introsort (một thuật toán sắp xếp hybrid, kết hợp ưu điểm của cả Quick Sort và Heap Sort để đạt được hiệu suất cao trong hầu hết các trường hợp).
 

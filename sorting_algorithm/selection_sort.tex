@@ -57,7 +57,8 @@ tử có màu đỏ chính là phần tử nhỏ nhất của phần chưa đư�
 
 \subsubsection{Độ phức tạp}
 
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
+
 Vòng lặp thứ $i$ thực hiện tìm kiếm phần tử nhỏ nhất của phần chưa được sắp xếp (mảng con $A[i,n]$) bằng cách tìm kiếm tuần tự nên tốn $(n-i)$ phép so sánh\footnote{Phần 1, mục 8.2, trang 90 \cite{hoang1999giaithuat}
 }.
 $$f(n) = 1 + 2 + ... + (n-1) = \frac{n(n-1)}{2} \in O(n^2).$$ 
@@ -73,7 +74,8 @@ Do đó độ phức tạp thời gian là\footnote{Mục 5.2.2, trang 196 \cite
 \end{itemize}
 
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
+
 Thuật toán Selection Sort chỉ tốn một số lượng hằng số các biến trung gian trong tìm kiếm tuần tự và hoán đổi giá trị các phần tử của mảng, nên độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
 
  
@@ -83,7 +85,11 @@ Thuật toán Selection Sort chỉ tốn một số lượng hằng số các bi
 Ưu điểm nội bật của Selection Sort là số phép đổi chỗ ít. Điều này có ý nghĩa nếu như việc đổi chỗ là tốn kém\footnote{Mục 5.2.2, trang 196 \cite{dsa_nghia_2013}}. 
 
 
-\paragraph{Tính ổn định} Vì Selection Sort hoạt động dựa trên việc hoán đổi các phần tử không nằm cạnh nhau), nên nó không đảm bảo thứ tự tương đối của các phần tử có giá trị bằng nhau, và do đó không phải là một thuật toán ổn định.
+\textbf{Tính ổn định} 
+
+Vì Selection Sort hoạt động dựa trên việc hoán đổi các phần tử không nằm cạnh nhau), nên nó không đảm bảo thứ tự tương đối của các phần tử có giá trị bằng nhau, và do đó không phải là một thuật toán ổn định.
 
 
-\paragraph{Cải tiến} Một cách cải tiến thuật toán này chính là ở mỗi vòng lặp, thay vì chỉ đưa phần tử nhỏ nhất ra trước, đưa thêm phần tử lớn nhất ra phía sau. Mặc dù cải tiến này không giảm độ phức tạp của thuật toán nhưng có thể thấy rằng việc cải tiến này giúp giảm thời gian chạy đi vì số vòng lặp chỉ còn $\frac{n}{2}$ thay vì $n - 1$ vòng lặp như ban đầu.
+\textbf{Cải tiến} 
+
+Một cách cải tiến thuật toán này chính là ở mỗi vòng lặp, thay vì chỉ đưa phần tử nhỏ nhất ra trước, đưa thêm phần tử lớn nhất ra phía sau. Mặc dù cải tiến này không giảm độ phức tạp của thuật toán nhưng có thể thấy rằng việc cải tiến này giúp giảm thời gian chạy đi vì số vòng lặp chỉ còn $\frac{n}{2}$ thay vì $n - 1$ vòng lặp như ban đầu.

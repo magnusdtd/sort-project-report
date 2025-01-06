@@ -117,7 +117,8 @@ A = \{0, 3, 5, 7, 9\}
 \subsubsection{Độ phức tạp}
 
 
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
+
 Phân tích các bước trong thuật toán:
 \begin{itemize}
     \item Bước phân lớp có độ phức tạp thời gian: \( O(n) \).
@@ -132,12 +133,14 @@ Khi \( m = \alpha n \) (\( \alpha \) là một hằng số), độ phức tạp 
 
 Do đó, độ phức tạp thời gian tổng cộng của thuật toán Flash Sort là \( O(n) \) cho các dữ liệu phân bố đồng đều, nhưng có thể giảm hiệu năng xuống \( O(n^2) \) với các phân bố dữ liệu không đồng đều.
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
 
-    Thuật toán cần thêm bộ nhớ để lưu ranh giới các nhóm hoặc số lượng phần tử trong mỗi nhóm. Do đó, độ phức tạp không gian là \( O(n) \).
+Thuật toán cần thêm bộ nhớ để lưu ranh giới các nhóm hoặc số lượng phần tử trong mỗi nhóm. Do đó, độ phức tạp không gian là \( O(n) \).
+
 \subsubsection{Nhận xét}
 Flash Sort là thuật toán tốt đối với các mảng lớn có dữ liệu phân bố đồng đều và hiệu quả vượt trội so với nhiều thuật toán \( O(n \log n) \) (như Quicksort) trong các trường hợp thực tế. Tuy nhiên, hiệu năng của Flash Sort phụ thuộc nhiều vào phân bố dữ liệu. Hiệu quả kém đối với các phân bố không đồng đều. Cần tính toán trước \( \text{min} \) và \( \text{max} \), đồng thời cần lựa chọn số lượng nhóm \( m \) một cách phù hợp.
 
 
-\paragraph{Cải tiến} 
+\textbf{Cải tiến} 
+
 Flash Sort tỏ ra không hiệu quả ở trường hợp tệ nhất khi tất cả các phần tử đều vào 1 lớp, cũng như thứ tự bị đảo ngược. Khi đó có thể thay thế một thuật toán khác như Merge Sort thể thay thế Insertion Sort trong trường hợp này.

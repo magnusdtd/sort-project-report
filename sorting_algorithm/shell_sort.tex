@@ -65,7 +65,8 @@ Gap & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích} \\ \hli
 % ============================================================================
 \subsubsection{Độ phức tạp}
 
-\paragraph{Độ phức tạp thời gian} 
+\textbf{Độ phức tạp thời gian} 
+
 Shell Sort hoạt động hiệu quả và cài đặt dễ dàng. Tuy nhiên độ phức tạp của thuật toán này khó để đánh giá một cách chặt chẽ.
 
 \textbf{Sau đây là phần chứng minh cho trường hợp tệ nhất}\footnote{Phần 7.4 Shell Sort, trang 298 \cite{dsa-analysis-cpp}}:
@@ -81,7 +82,8 @@ Tóm lại, độ phức tạp thời gian của Shell Sort:
     \item Trường hợp trung bình: $\Theta(n\log{n})$
 \end{itemize}
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
+
 Độ phức tạp không gian sẽ là O(1)
 % ============================================================================
 
@@ -90,10 +92,10 @@ Tóm lại, độ phức tạp thời gian của Shell Sort:
 Trong nhiều trường hợp, đặc biệt là với các mảng lớn và không được sắp xếp hoàn toàn, Shell Sort có thể hoạt động nhanh hơn đáng kể so với sắp xếp chèn. Thuật toán có cấu trúc rõ ràng và dễ hiểu, dễ dàng viết mã để thực hiện. 
 Độ phức tạp thời gian của Shell Sort phụ thuộc rất nhiều vào cách chọn dãy các giá trị bước nhảy. Mặc dù trong nhiều trường hợp, nó hoạt động rất tốt, nhưng trong một số trường hợp xấu nhất, độ phức tạp thời gian có thể lên đến $O(n^2)$.
 
-% \paragraph{Tính ổn định}
+% \textbf{Tính ổn định}
 
 
-\paragraph{Cải tiến}
+\textbf{Cải tiến}
 
 
 Có nhiều dãy khác được chứng minh là hiệu quả hơn so với dãy do tác giả đề xuất, giúp giảm độ phức tạp của thuật toán như: Hibbard, Sedgewick, Pratt... Ngoài ra, có thể cải tiến thuật toán sắp xếp chèn bằng cách sử dụng thuật toán khác như binary insertion sort để giảm số lần so sánh và hoán đổi.

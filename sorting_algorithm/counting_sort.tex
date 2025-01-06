@@ -116,7 +116,7 @@ Bước 5: Sao chép mảng \( \text{output} \) vào mảng \( A \).
 
 
 \subsubsection{Độ phức tạp}
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
 
 
 Số phép toán mà thuật toán thực hiện:
@@ -132,7 +132,8 @@ Tổng cộng, số phép toán $= n + (k + 1) + 2n + n = 4n + k + 1$. Suy ra đ
 phức tạp cho cả ba trường hợp đều là $O(n)$.
 
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
+
 Trong quá trình sắp xếp cần 1 mảng đếm và 1 mảng phụ có kích thước bằng kích thước mảng cần sắp xếp, nên độ phức tạp không gian của Counting Sort cũng là $O(n)$.
 
 
@@ -140,12 +141,16 @@ Trong quá trình sắp xếp cần 1 mảng đếm và 1 mảng phụ có kích
 \subsubsection{Nhận xét}
 
 Sắp xếp đếm (Counting Sort) là một thuật toán sắp xếp rất hiệu quả nhưng có những hạn chế. Nó chỉ có thể được sử dụng khi mảng chỉ chứa các số nguyên và phạm vi giá trị không quá lớn. 
-\paragraph{Tính ổn định}
+
+
+\textbf{Tính ổn định}
+
 Khi đếm số lần xuất hiện của mỗi phần tử, thuật toán duyệt qua mảng từ đầu đến cuối. Các phần tử có cùng giá trị sẽ được đếm liên tiếp nhau. Điều này đảm bảo rằng thứ tự ban đầu của các phần tử giống nhau sẽ được giữ nguyên trong mảng đếm.
 
 Khi xây dựng lại mảng đã sắp xếp, thuật toán duyệt qua mảng đếm từ cuối lên đầu. Đối với mỗi giá trị, nó sẽ lấy ra một số lượng phần tử bằng với số lần đếm tương ứng và đặt chúng vào đúng vị trí trong mảng kết quả. Vì các phần tử giống nhau được đếm liên tiếp nhau trong mảng đếm, nên khi lấy ra và đặt vào mảng kết quả, chúng cũng sẽ được đặt liên tiếp nhau, giữ nguyên thứ tự ban đầu.
 
 Vậy Counting Sort là một thuật toán ổn định.
 
-\paragraph{Cải tiến}
+\textbf{Cải tiến}
+
 Xét mảng $A$ chứa số âm thỏa miền giá trị không quá lớn và ánh xạ $f: x\rightarrow x + min$. Với min, max lần lượt là giá trị nhỏ nhất, lớn nhất của $A$. Do mảng tồn tại số âm nên min < 0, nên $f(A)$ sẽ có giá trị nằm trong khoảng $[0, max - min]$. Lúc này $f(A)$ sẽ thỏa tính chất để có thể thực hiện Counting Sort. Sử dụng tính chất này để sắp xếp cho mảng có số nguyên âm. Và sử dụng ảnh xạ ngược $f^{-1}: x \rightarrow x - min$ để điều chỉnh mảng trở lại mảng ban đầu. 

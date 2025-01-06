@@ -88,13 +88,14 @@ Vòng lặp & \multicolumn{1}{c|}{Mảng A} & \multicolumn{1}{c|}{Giải thích}
 
 \subsubsection{Độ phức tạp}
  
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
 
 Đối với thuật toán sắp xếp nổi bọt, có thể coi phép toán tích cực là phép so sánh $A[j] > A[j + 1]$. Và số lần thực hiện phép so sánh này là:
 $$(n-1)+(n-2)+...+1 = \frac{n(n-1)}{2}$$
 Vậy thuật toán sắp xếp nổi bọt cũng có độ phức tạp là $O(n^2)$. Bất kể tình trạng dữ liệu vào như thế nào\footnote{Phần 1, mục 8.2, trang 90 \cite{hoang1999giaithuat}}. 
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
+
 Thuật toán Bubble Sort chỉ tốn một số lượng hằng số các biến trung gian trong tìm kiếm tuần tự và hoán đổi giá trị các phần tử của mảng, nên độ phức tạp không gian cho cả ba trường hợp lần lượt là $O(1), \Omega(1), \Theta(1)$.
 
 
@@ -102,6 +103,7 @@ Thuật toán Bubble Sort chỉ tốn một số lượng hằng số các biế
 
 Trong Bubble Sort, khi so sánh hai phần có giá trị bằng nhau, thuật toán không hoán đổi hai phần tử này. Do đó, thứ tự của các phần tử có giá trị bằng nhau vẫn được bảo toàn trong quá trình sắp xếp. Vậy Bubble Sort là một thuật toán sắp xếp ổn định.
 
-\paragraph{Cải tiến}
+\textbf{Cải tiến}
+
 Một cải tiến cho thuật toán Bubble Sort là dừng sớm nếu mảng đã được sắp xếp hoàn toàn trong một vòng lặp. Điều này giúp giảm số lần so sánh và hoán đổi, từ đó cải thiện hiệu suất trong những trường hợp mảng gần như đã sắp xếp sẵn.
 Một cải tiến khác là Shaker Sort ở mục \ref{subsec:shaker-sort}.

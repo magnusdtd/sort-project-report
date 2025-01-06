@@ -104,18 +104,21 @@ Xét mảng A như sau:
 
 \subsubsection{Độ phức tạp}
 
-\paragraph{Độ phức tạp thời gian}
+\textbf{Độ phức tạp thời gian}
+
 Trong cả ba trường hợp (tốt nhất, trung bình, tệ nhất), Radix sort đều cần thực hiện d bước (với d là số chữ số của số lớn nhất trong mảng). Trong mỗi bước, Counting Sort có độ phức tạp thời gian là $O(n)$. Do đó, độ phức tạp thời gian của Radix sort là $O(dn)$.
 
-\paragraph{Độ phức tạp không gian}
+\textbf{Độ phức tạp không gian}
 
 Radix Sort sử dụng Counting Sort trong mỗi lượt duyệt, do đó sử dụng mảng phụ để lưu kết quả, dẫn đến độ phức tạp thời gian là $O(n)$.
 
 \subsubsection{Nhận xét}
 
-\paragraph{Tính ổn định}
+\textbf{Tính ổn định}
+
 Tính ổn định của Radix Sort được đảm bảo bởi cách thức hoạt động của thuật toán. Bằng cách phân nhóm các phần tử dựa trên từng chữ số và giữ nguyên thứ tự tương đối của các phần tử trong mỗi nhóm, Radix Sort đảm bảo rằng thứ tự ban đầu của các phần tử bằng nhau sẽ không bị thay đổi sau khi sắp xếp.
 
-\paragraph{Cải tiến}
+\textbf{Cải tiến}
+
 Binary MSD RadixSort là một biến thể của thuật toán sắp xếp Radix Sort, được tối ưu hóa cho việc sắp xếp các số nguyên. Thuật toán này phân chia các số dựa trên từng chữ số ở cơ số 2 (hệ nhị phân) và không tốn
 thêm bộ nhớ làm mảng tạm.
