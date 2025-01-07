@@ -17,7 +17,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const latestRelease = await github.repos.getLatestRelease({
+            const latestRelease = await github.rest.repos.getLatestRelease({
               owner: 'magnusdtd',
               repo: 'sort-project'
             });
