@@ -12,13 +12,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Download latest release assets
-        uses: actions/download-artifact@v2
+      - name: Get latest release info
+        id: get_release
+        uses: actions/github-script@v6
         with:
-          repository: magnusdtd/sort-project
-          path: ./exprimental_result
-          name: images.zip
-          name: result_tables.tex
+          script: |
+            const latestRelease = await github.repos.getLatestRelease({
+              owner: 'magnusdtd',
+              repo: 'sort-project'
+            });
+            return latestRelease.data;
+
+      - name: Download images.zip
+        run: |
+          curl -L ${{ steps.get_release.outputs.assets.filter(asset => asset.name === 'images.zip')[0].browser_download_url }} -o ./exprimental_result/images.zip
+
+      - name: Download result_tables.tex
+        run: |
+          curl -L ${{ steps.get_release.outputs.assets.filter(asset => asset.name === 'result_tables.tex')[0].browser_download_url }} -o ./exprimental_result/result_tables.tex
 
       - name: Extract images.zip
         run: unzip ./exprimental_result/images.zip -d ./exprimental_result
@@ -40,8 +51,8 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          draft: True
-          prerelease: True
+          draft: true
+          prerelease: true
 
       - name: Set upload_url output
         run: echo "upload_url=${{ steps.create_release.outputs.upload_url }}" >> $GITHUB_ENV
