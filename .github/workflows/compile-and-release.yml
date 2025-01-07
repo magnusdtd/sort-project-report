@@ -33,8 +33,11 @@ jobs:
           asset_url=$(echo '${{ steps.get_release.outputs.assets }}' | jq -r '.[] | select(.name == "result_tables.tex") | .browser_download_url')
           curl -L $asset_url -o ./experimental_result/result_tables.tex
 
+      - name: Create images directory
+        run: mkdir -p ./experimental_result/images
+
       - name: Extract images.zip
-        run: unzip ./experimental_result/images.zip -d ./experimental_result
+        run: unzip ./experimental_result/images.zip -d ./experimental_result/images
 
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
