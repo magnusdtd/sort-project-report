@@ -4,6 +4,8 @@ Lưu ý: Hai thuật toán Bubble Sort, Shaker Sort trong thực nghiệm này �
 
 \input{experimental_result/result}
 
+\subsection{Biểu đồ}
+
 11 thuật toán được phân loại thành ba nhóm như sau để thuận tiện cho việc gọi tên: 
 \begin{itemize}
     \item Thuật toán cơ bản (Selection Sort, Insertion Sort, Bubble Sort, Shaker Sort)
@@ -18,14 +20,12 @@ Lưu ý: Hai thuật toán Bubble Sort, Shaker Sort trong thực nghiệm này �
 
 Các biểu đồ và hình ảnh trong phần kết quả thực nghiệm cho thấy sự khác biệt rõ rệt về hiệu suất của các thuật toán sắp xếp khi áp dụng trên các bộ dữ liệu khác nhau. 
 
-1. **Dữ liệu ngẫu nhiên**: Các thuật toán cơ bản như Bubble Sort và Shaker Sort có thời gian chạy lớn hơn rất nhiều so với các thuật toán khác, thể hiện rõ độ phức tạp $O(n^2)$. Trong khi đó, các thuật toán như Counting Sort và Flash Sort có thời gian chạy rất nhỏ và ổn định.
-
-2. **Dữ liệu gần sắp xếp hoàn chỉnh**: Insertion Sort có thời gian thực thi nhanh nhất, phù hợp với trường hợp tốt nhất của nó. Các thuật toán cải tiến và không so sánh như Heap Sort, Radix Sort, Merge Sort vẫn giữ được tính ổn định.
-
-3. **Dữ liệu được sắp xếp**: Shaker Sort và Insertion Sort là hai thuật toán nhanh nhất, phù hợp với độ phức tạp thời gian $\Theta(n)$ trong trường hợp tốt nhất. Các thuật toán khác như Heap Sort, Radix Sort, Merge Sort vẫn giữ được tính ổn định.
-
-4. **Dữ liệu đảo ngược**: Shaker Sort có thời gian chạy chậm hơn Bubble Sort, trong khi Selection Sort và Insertion Sort có thời gian thực thi tương đối giống nhau. Các thuật toán như Heap Sort, Radix Sort, Merge Sort vẫn thể hiện được tính ổn định.
-
-5. **Số phép so sánh**: Selection Sort có số lượng phép so sánh vượt trội, đạt đến 2500049999 phép so sánh. Các thuật toán khác được chia thành ba nhóm chính: Nhóm 1 (Insertion Sort, Bubble Sort, Shaker Sort) có số lượng phép so sánh ít nhất, Nhóm 2 (Shell Sort, Heap Sort, Merge Sort, Quick Sort) có số phép so sánh nhiều nhất, và Nhóm 3 (Counting Sort, Radix Sort, Flash Sort) có số phép so sánh ổn định và thấp nhất.
+\begin{itemize}
+    \item Dữ liệu ngẫu nhiên: Các thuật toán cơ bản như Bubble Sort và Shaker Sort có thời gian chạy lớn hơn rất nhiều so với các thuật toán khác, thể hiện rõ độ phức tạp $O(n^2)$. Trong khi đó, các thuật toán như Counting Sort và Flash Sort có thời gian chạy rất nhỏ và ổn định.
+    \item Dữ liệu gần sắp xếp hoàn chỉnh: Insertion Sort có thời gian thực thi nhanh nhất, phù hợp với trường hợp tốt nhất của nó. Các thuật toán cải tiến và không so sánh như Heap Sort, Radix Sort, Merge Sort vẫn giữ được tính ổn định.
+    \item Dữ liệu được sắp xếp: Shaker Sort và Insertion Sort là hai thuật toán nhanh nhất, phù hợp với độ phức tạp thời gian $\Theta(n)$ trong trường hợp tốt nhất. Các thuật toán khác như Heap Sort, Radix Sort, Merge Sort vẫn giữ được tính ổn định.
+    \item Dữ liệu đảo ngược: Shaker Sort có thời gian chạy chậm hơn Bubble Sort, trong khi Selection Sort và Insertion Sort có thời gian thực thi tương đối giống nhau. Các thuật toán như Heap Sort, Radix Sort, Merge Sort vẫn thể hiện được tính ổn định.
+    \item Số phép so sánh: Selection Sort có số lượng phép so sánh vượt trội, đạt đến 2500049999 phép so sánh. Các thuật toán khác được chia thành ba nhóm chính: Nhóm 1 (Insertion Sort, Bubble Sort, Shaker Sort) có số lượng phép so sánh ít nhất, Nhóm 2 (Shell Sort, Heap Sort, Merge Sort, Quick Sort) có số phép so sánh nhiều nhất, và Nhóm 3 (Counting Sort, Radix Sort, Flash Sort) có số phép so sánh ổn định và thấp nhất.
+\end{itemize}
 
 Nhìn chung, các thuật toán cải tiến và không so sánh như Counting Sort, Flash Sort, Heap Sort, Radix Sort, Merge Sort thể hiện hiệu suất tốt và ổn định hơn so với các thuật toán cơ bản như Bubble Sort, Shaker Sort, và Selection Sort.
