@@ -46,12 +46,16 @@ Trường Đại học Khoa học Tự nhiên - ĐHQG HCM\\
 % ============ DOCUMENT ============
 \begin{document}
 
-\pagenumbering{roman}
+\pagenumbering{gobble}
 \input{content/title.tex}
 
 \tableofcontents
 \pagebreak
 
+% Footer page number would be on the lower-right corner
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyfoot[R]{Trang \thepage}
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
@@ -70,5 +74,5 @@ Trường Đại học Khoa học Tự nhiên - ĐHQG HCM\\
 % Appendix
 \appendix
 % Add \cleardoublepage to move appendices to next page.
-% \input{appendix/appendix.tex}
+\input{appendix/appendix.tex}
 \end{document}
