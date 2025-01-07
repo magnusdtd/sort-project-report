@@ -12,6 +12,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Download latest release assets
+        uses: actions/download-artifact@v2
+        with:
+          repository: magnusdtd/sort-project
+          path: ./exprimental_result
+          name: images.zip
+          name: result_tables.tex
+
+      - name: Extract images.zip
+        run: unzip ./exprimental_result/images.zip -d ./exprimental_result
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with: 
