@@ -25,12 +25,12 @@ jobs:
 
       - name: Download images.zip
         run: |
-          asset_url=$(echo ${{ steps.get_release.outputs.assets }} | jq -r '.[] | select(.name == "images.zip") | .browser_download_url')
+          asset_url=$(echo '${{ steps.get_release.outputs.assets }}' | jq -r '.[] | select(.name == "images.zip") | .browser_download_url')
           curl -L $asset_url -o ./experimental_result/images.zip
 
       - name: Download result_tables.tex
         run: |
-          asset_url=$(echo ${{ steps.get_release.outputs.assets }} | jq -r '.[] | select(.name == "result_tables.tex") | .browser_download_url')
+          asset_url=$(echo '${{ steps.get_release.outputs.assets }}' | jq -r '.[] | select(.name == "result_tables.tex") | .browser_download_url')
           curl -L $asset_url -o ./experimental_result/result_tables.tex
 
       - name: Extract images.zip
