@@ -1,62 +1,70 @@
 \subsubsection{Biểu đồ số phép so sánh}
 
+Đầu tiên, tiến hành vẽ tất cả biểu đồ trên các thứ tự khác nhau của 11 thuật toán, được hình \ref{fig:all_the_number_of_comparisons_for_each_algorithm_of_each_data_order}
 
-\paragraph{1. Dữ liệu ngẫu nhiên}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/randomize_comparisons.png}
+    \includegraphics[width=\textwidth]{exprimental_result/images/all_the_number_of_comparisons_for_each_algorithm_of_each_data_order.png}
     \caption{Số phép so sánh của 11 thuật toán với dữ liệu ngẫu nhiên}
+    \label{fig:all_the_number_of_comparisons_for_each_algorithm_of_each_data_order}
 \end{figure}
+
+Dễ thấy, Selection Sort số lượng phép so sánh vượt trội hơn 10 thuật toán còn lại, và đạt đến 2500049999 phép so sánh. Do đó, các thuật toán còn lại không thể nhìn thấy được trên biểu đồ. Selection Sort tăng rất mạnh khi gặp kích thước dữ liệu tăng dần, thể hiện độ phức tạp thời gian trung bình $\Theta(n^2)$. Vì thuật toán này luôn duyệt tất cả trường hợp có thể xảy ra, không dừng sớm khi đã sắp xếp xong nên só lượng phép so sánh là như nhau đối với tất cả trường hợp của mảng trong thực nghiệm (\ref{subsec:exprimental_result}).  
+
+Từ đây bỏ qua Selection Sort để thuận tiện cho việc trực quan hóa dữ liệu.
+
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/randomize_comparisons_filtered.png}
-    \caption{Số phép so sánh của 11 thuật toán với dữ liệu ngẫu nhiên sau khi loại bỏ outlier}
+    \includegraphics[width=\textwidth]{exprimental_result/images/all_the_number_of_comparisons_for_each_algorithm_of_each_data_order_remove_selection_sort.png}
+    \caption{Số phép so sánh của 11 thuật toán với dữ liệu ngẫu nhiên}
+    \label{fig:all_the_number_of_comparisons_for_each_algorithm_of_each_data_order_remove_selection_sort}
 \end{figure}
 
 
+Biểu đồ \ref{fig:all_the_number_of_comparisons_for_each_algorithm_of_each_data_order_remove_selection_sort} chia các thuật toán thành 3 nhóm chính: 
+\begin{itemize}
+    \item Nhóm 1: Insertion Sort, Bubble Sort, Shaker Sort 
+    \item Nhóm 2: Shell Sort, Heap Sort, Merge Sort, Quick Sort
+    \item Nhóm 3: Counting Sort, Radix Sort, Flash Sort
+\end{itemize}
 
-\paragraph{2. Dữ liệu gần sắp xếp hoàn chỉnh}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/nearly_sorted_comparisons.png}
-    \caption{Số phép so sánh của 11 thuật toán với dữ liệu gần sắp xếp hoàn chỉnh}
-\end{figure}
+Nhóm 1 có số lượng phép so sánh ít nhất trong tất cả trường hợp của dữ liệu. Ngược lại, nhóm 2 lại có số phép sánh nhiều nhất trong ba nhóm.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/nearly_sorted_comparisons_filtered.png}
-    \caption{Số phép so sánh của 11 thuật toán với dữ liệu gần sắp xếp hoàn chỉnh sau khi loại bỏ outlier}
-\end{figure}
+Tiến hành nhìn kĩ hơn vào từng nhóm thuật toán.
 
-
-\paragraph{3. Dữ liệu được sắp xếp}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/sorted_comparisons.png}
-    \caption{Số phép so sánh của 11 thuật toán với dữ liệu được sắp xếp}
-\end{figure}
+\textbf{Nhóm 1}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/sorted_comparisons_filtered.png}
-    \caption{Số phép so sánh của 11 thuật toán với dữ liệu được sắp xếp sau khi loại bỏ outlier}
+    \includegraphics[width=\textwidth]{exprimental_result/images/all_the_number_of_comparisons_for_each_algorithm_in_group_1_of_each_data_order.png}
+    \caption{Số phép so sánh của 11 thuật toán với dữ liệu ngẫu nhiên}
+    \label{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_1_of_each_data_order}
 \end{figure}
 
+Ngoại trừ, Insertion Sort có độ phức tạp thời gian $\Theta(n)$ trong trường hợp mảng đã sắp xếp, các thuật toán nhóm này đều có xu hướng tăng theo hàm đa thức bậc hai. Điều này do các thuật toán này đa số đều có độ phức tạp thời gian là hàm đa thức bậc hai cho các trường hợp. 
 
 
-
-\paragraph{4. Dữ liệu đảo ngược}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/reversed_comparisons.png}
-    \caption{Số phép so sánh của 11 thuật toán với dữ liệu đảo ngược}
-\end{figure}
+\textbf{Nhóm 2}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{exprimental_result/images/reversed_comparisons_filtered.png}
-    \caption{
-        Số phép so sánh của 11 thuật toán với dữ liệu đảo ngược sau khi loại bỏ outlier
-    }
+    \includegraphics[width=\textwidth]{exprimental_result/images/all_the_number_of_comparisons_for_each_algorithm_in_group_2_of_each_data_order.png}
+    \caption{Số phép so sánh của 11 thuật toán với dữ liệu ngẫu nhiên}
+    \label{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_2_of_each_data_order}
 \end{figure}
+
+Đến với nhóm 2, số lượng phép so sánh của các thuật toán này không có hầu như không có sự thay đổi. 
+
+
+
+\textbf{Nhóm 3}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{exprimental_result/images/all_the_number_of_comparisons_for_each_algorithm_in_group_3_of_each_data_order.png}
+    \caption{Số phép so sánh của 11 thuật toán với dữ liệu ngẫu nhiên}
+    \label{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_3_of_each_data_order}
+\end{figure}
+
+Counting Sort thể hiển sự vượt trội của mình trong tất cả trường hợp, có độ tăng của số lượng phép so sánh khá thấp. Radix Sort có số phép so sánh nhiều nhất trong nhóm này. Flash Sort có số phép so sánh khá ổn định, có thể do sử dụng hm \textbf{srand} để tạo ra dữ liệu chưa thật sự ngẫu nhiên.
