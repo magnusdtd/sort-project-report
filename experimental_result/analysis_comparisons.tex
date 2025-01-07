@@ -33,8 +33,6 @@ Nhóm 1 có số lượng phép so sánh ít nhất trong tất cả trường h
 
 Tiến hành nhìn kĩ hơn vào từng nhóm thuật toán.
 
-\textbf{Nhóm 1}
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{experimental_result/images/all_the_number_of_comparisons_for_each_algorithm_in_group_1_of_each_data_order.png}
@@ -42,10 +40,11 @@ Tiến hành nhìn kĩ hơn vào từng nhóm thuật toán.
     \label{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_1_of_each_data_order}
 \end{figure}
 
-Ngoại trừ, Insertion Sort có độ phức tạp thời gian $\Theta(n)$ trong trường hợp mảng đã sắp xếp, các thuật toán nhóm này đều có xu hướng tăng theo hàm đa thức bậc hai. Điều này do các thuật toán này đều có độ phức tạp thời gian là hàm đa thức bậc hai cho trong hầu hết các trường hợp. 
+\textbf{Nhóm 1}
+
+Theo hình \ref{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_1_of_each_data_order}, ngoại trừ Insertion Sort có độ phức tạp thời gian $\Theta(n)$ trong trường hợp mảng đã sắp xếp, các thuật toán nhóm này đều có xu hướng tăng theo hàm đa thức bậc hai. Điều này do các thuật toán này đều có độ phức tạp thời gian là hàm đa thức bậc hai cho trong hầu hết các trường hợp. 
 
 
-\textbf{Nhóm 2}
 
 \begin{figure}[H]
     \centering
@@ -54,11 +53,11 @@ Ngoại trừ, Insertion Sort có độ phức tạp thời gian $\Theta(n)$ tro
     \label{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_2_of_each_data_order}
 \end{figure}
 
-Đến với nhóm 2, số lượng phép so sánh của các thuật toán này không có hầu như không có sự thay đổi khi đi qua tất cả trường hợp của dữ liệu. Heap Sort có số lượng phép so sánh lớn nhất trong nhóm này, và thấp nhất là Quick Sort. 
+\textbf{Nhóm 2}
+Đến với nhóm 2 (hình \ref{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_2_of_each_data_order}), số lượng phép so sánh của các thuật toán này không có hầu như không có sự thay đổi khi đi qua tất cả trường hợp của dữ liệu. Heap Sort có số lượng phép so sánh lớn nhất trong nhóm này, và thấp nhất là Quick Sort. 
 
 
 
-\textbf{Nhóm 3}
 
 \begin{figure}[H]
     \centering
@@ -67,4 +66,6 @@ Ngoại trừ, Insertion Sort có độ phức tạp thời gian $\Theta(n)$ tro
     \label{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_3_of_each_data_order}
 \end{figure}
 
-Counting Sort thể hiển sự vượt trội của mình trong tất cả trường hợp, có độ tăng của số lượng phép so sánh khá thấp. Radix Sort có số phép so sánh nhiều nhất trong nhóm này. Flash Sort có số phép so sánh khá ổn định, có thể do sử dụng hàm \textbf{srand} để tạo ra dữ liệu chưa thật sự ngẫu nhiên.
+\textbf{Nhóm 3}
+
+Counting Sort thể hiển sự vượt trội của mình trong tất cả trường hợp trên hình \ref{fig:all_the_number_of_comparisons_for_each_algorithm_in_group_3_of_each_data_order}, có độ tăng của số lượng phép so sánh khá thấp. Radix Sort có số phép so sánh nhiều nhất trong nhóm này. Flash Sort có số phép so sánh khá ổn định, có thể do sử dụng hàm \textbf{srand} để tạo ra dữ liệu chưa thật sự ngẫu nhiên.
