@@ -81,35 +81,37 @@ A = \{2, 3, 3, 4, 5, 6, 8\}
 \subsubsection{Mã giả}
  
 \begin{algorithm}[H]
-\caption{Quick Sort}
-\label{alg:quick-sort}
-\begin{algorithmic}
-
-\Require $A$ is an array of size $n$
-
-\Function {partition}{\textit{A}, \textit{low}, \textit{high}}
-\State $pivot \gets A[high]$
-\State $i \gets low - 1$
-\For{$j = low$ to $high-1$}
-    \If{$A[j] < pivot$}
-        \State $i \gets i + 1$
-        \State Swap $A[i]$ and $A[j]$
+    \caption{Quick Sort}
+    \label{alg:quick-sort}
+    \begin{algorithmic}
+    
+    \Require $A$ is an array of size $n$
+    
+    \Function {partition}{\textit{A}, \textit{low}, \textit{high}}
+    \State $mid \gets \lfloor (low + high) / 2 \rfloor$
+    \State Swap $A[mid]$ and $A[high]$
+    \State $pivot \gets A[high]$
+    \State $i \gets low - 1$
+    \For{$j = low$ to $high-1$}
+        \If{$A[j] < pivot$}
+            \State $i \gets i + 1$
+            \State Swap $A[i]$ and $A[j]$
+        \EndIf
+    \EndFor
+    \State Swap $A[i+1]$ and $A[high]$
+    \State \Return $i+1$
+    \EndFunction
+    
+    \Function {quick-sort}{\textit{A}, \textit{low}, \textit{high}}
+    \If{$low < high$}
+        \State $pivot \gets$ \Call{partition}{A, low, high} \State
+        \Call{quick-sort}{A, low, pivot-1} \Comment{Sort the left subarray}
+        \State \Call{quick-sort}{A, pivot+1, high} \Comment{Sort the right subarray}
     \EndIf
-\EndFor
-\State Swap $A[i+1]$ and $A[high]$
-\State \Return $i+1$
-\EndFunction
-
-\Function {quick-sort}{\textit{A}, \textit{low}, \textit{high}}
-\If{$low < high$}
-    \State $pivot \gets$ \Call{partition}{A, low, high} \State
-    \Call{quick-sort}{A, low, pivot-1} \Comment{Sort the left subarray}
-    \State \Call{quick-sort}{A, pivot+1, high} \Comment{Sort the right subarray}
-\EndIf
-\EndFunction
-
-\end{algorithmic}
-\end{algorithm}
+    \EndFunction
+    
+    \end{algorithmic}
+    \end{algorithm}
 
 
 \subsubsection{Độ phức tạp}

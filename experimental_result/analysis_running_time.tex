@@ -14,7 +14,6 @@ Các thuật còn lại bao gồm Shell Sort, Heap Sort, Merge Sort, Quick Sort,
     \label{fig:randomize_running_time}
 \end{figure}
 
-Các thuật toán này có xu hướng tuyến tính hơn so với nhóm trước. Thuật toán Counting Sort và Flash Sort là hai thuật toán nhanh nhất, trong khi nhóm các thuật toán cải tiến có thời gian chạy cao hơn nhưng vẫn ổn định. Đặc biệt, Counting Sort có thời gian chạy rất nhỏ các tất cả trường hợp, đều bé hơn $5 ms$ (đường màu đen nằm rất gần trục hoành).
 
 \begin{figure}[H]
     \centering
@@ -23,10 +22,10 @@ Các thuật toán này có xu hướng tuyến tính hơn so với nhóm trư�
     \label{fig:randomize_running_time_filtered}
 \end{figure}
 
+Các thuật toán này có xu hướng tuyến tính hơn so với nhóm trước. Thuật toán Counting Sort và Flash Sort là hai thuật toán nhanh nhất, trong khi nhóm các thuật toán cải tiến có thời gian chạy cao hơn nhưng vẫn ổn định. Đặc biệt, Counting Sort có thời gian chạy rất nhỏ các tất cả trường hợp, đều bé hơn $5 ms$ (đường màu đen nằm rất gần trục hoành).
 
 
 
-\textbf{3.2.1.2. Dữ liệu gần sắp xếp hoàn chỉnh}
 
 \begin{figure}[H]
     \centering
@@ -34,6 +33,7 @@ Các thuật toán này có xu hướng tuyến tính hơn so với nhóm trư�
     \caption{Thời gian chạy của 11 thuật toán với dữ liệu gần sắp xếp hoàn chỉnh}
     \label{fig:nearly_sorted_running_time}
 \end{figure}
+\textbf{3.2.1.2. Dữ liệu gần sắp xếp hoàn chỉnh}
 
 
 Selection Sort có màn thể hiện rất tệ với dữ liệu gần sắp xếp hoàn chỉnh. Hình \ref{fig:nearly_sorted_running_time} thể hiện rõ độ phức tạp $O(n^2)$ của Selection Sort, tăng rất mạnh khi kích thước dữ liệu lên tới 500.000 phần tử. Thời gian chạy của Bubble Sort tốt hơn Selection Sort nhưng vẫn không tốt bằng các thuật toán khác. Các thuật toán còn lại không thể nhìn thấy do thời gian chạy của chúng nhanh hơn rất nhiều so với Selection Sort. Tiến hành loại bỏ Selection Sort và Bubble Sort, kết quả như hình \ref{fig:nearly_sorted_running_time_filtered}.
@@ -49,7 +49,6 @@ Selection Sort có màn thể hiện rất tệ với dữ liệu gần sắp x�
 Biểu đồ lúc (\ref{fig:nearly_sorted_running_time_filtered}) này có xu hướng chia thành hai nhóm nhóm 1 (Heap Sort, Radix Sort, Merge Sort) và nhóm 2, nhanh hơn (Quick Sort, Shell Sort, Shaker Sort, Flash Sort, Counting Sort, Insertion) .Insertion Sort có thời gian thực thi nhanh nhất với bộ dữ liệu này. Điều này khá phù hợp với trường hợp tốt nhất của Insertion Sort là dữ liệu đã sắp xếp. Shaker Sort tốt hơn nhiều so với Bubble Sort và xấp xỉ Flash Sort. Các thuật toán cải tiến và không sắp xếp khá ổn định giống như bộ dữ liệu trước.
 
 
-\textbf{3.2.1.3. Dữ liệu được sắp xếp}
 
 \begin{figure}[H]
     \centering
@@ -57,6 +56,8 @@ Biểu đồ lúc (\ref{fig:nearly_sorted_running_time_filtered}) này có xu h�
     \caption{Thời gian chạy của 11 thuật toán với dữ liệu được sắp xếp}
     \label{fig:sorted_running_time}
 \end{figure}
+
+\textbf{3.2.1.3. Dữ liệu được sắp xếp}
 
 Selection vẫn có thời gian thực thi lớn so với các thuật toán còn lại như trên hình \ref{fig:sorted_running_time}. Tiếp tục tách Selection Sort ra khỏi biểu đồ.
 
@@ -69,7 +70,6 @@ Selection vẫn có thời gian thực thi lớn so với các thuật toán cò
 
 Có hai nhóm thuật toán chính trên biểu đồ \ref{fig:sorted_running_time_filtered}: nhóm 1 (Heap Sort, Radix Sort, Merge Sort) và nhóm 2 (các thuật toán còn lại). Nhóm 1 vẫn giống như trên bộ dữ liệu gần sắp xếp hoàn chỉnh, tương đối ổn định. Nhóm 2 có tốc độ tăng thời gian chạy theo của kích thước của dữ liệu chậm hơn so với nhóm 1. Shaker Sort và Insertion Sort là hai thuật toán nhanh nhất. Bộ dữ liệu này chính là trường hợp tốt nhất cho độ phức tạp thời gian của hai thuật toán này và bằng $\Theta(n)$.
 
-\textbf{3.2.1.4. Dữ liệu đảo ngược}
 
 \begin{figure}[H]
     \centering
@@ -78,7 +78,10 @@ Có hai nhóm thuật toán chính trên biểu đồ \ref{fig:sorted_running_ti
     \label{fig:reversed_running_time}
 \end{figure}
 
-Đối với bộ dữ liệu đảo ngược, Shaker Sort có thời gian chạy chậm hơn hơn Bubble Sort. Thời gian thực thi của Selection Sort và Insertion Sort tương đối giống nhau. Shaker Sort và Bubble Sort thể hiện khuynh hướng tăng mạnh hơn so với Selection Sort và Insertion Sort khi gặp kích thước dữ liệu lớn. Hình \ref{fig:reversed_running_time_filtered} có được sau khi bỏ qua 4 thuật toán nhóm cơ bản.
+\textbf{3.2.1.4. Dữ liệu đảo ngược}
+
+
+Đối với bộ dữ liệu đảo ngược, Shaker Sort có thời gian chạy tương đối bằng Bubble Sort. Thời gian thực thi của Selection Sort và Insertion Sort khá giống nhau. Shaker Sort và Bubble Sort thể hiện khuynh hướng tăng mạnh hơn so với Selection Sort và Insertion Sort khi gặp kích thước dữ liệu lớn. Hình \ref{fig:reversed_running_time_filtered} có được sau khi bỏ qua 4 thuật toán nhóm cơ bản.
 
 \begin{figure}[H]
     \centering
