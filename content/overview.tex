@@ -6,7 +6,7 @@ Thuật toán sắp xếp đóng vai trò quan trọng trong khoa học máy tí
 
 \subsection{Dữ liệu}
 
-Dữ liệu sử dụng trong thí nghiệm là mảng số nguyên với các kích thước khác nhau: 10000, 30000, 50000, 100000, 300000, 500000. Tương ứng từng kích thước có 4 kiểu thứ tự của dữ liệu: Mảng được sắp xếp, mảng gần được sắp xếp hoàn chỉnh, mảng được sắp xếp ngược, mảng có thứ tự ngẫu nhiên. Các hàm phát sinh dãy số được giáo viên hướng dẫn thực hành cung cấp trong file DataGenerator.cpp. Các mảng số nguyên phát sinh được yêu cầu sắp xếp tăng dần bằng các thuật toán đề cập trong thí nghiệm.
+Dữ liệu sử dụng trong thí nghiệm là mảng số nguyên với các kích thước khác nhau: 10000, 30000, 50000, 100000, 300000, 500000. Tương ứng từng kích thước có 4 kiểu thứ tự của dữ liệu: Mảng được sắp xếp, mảng gần được sắp xếp hoàn chỉnh, mảng được sắp xếp ngược, mảng có thứ tự ngẫu nhiên. Các hàm phát sinh dãy số được giáo viên hướng dẫn thực hành cung cấp trong file \texttt{DataGenerator.cpp}. Tuy nhiên, file \texttt{DataGenerator.cpp} được thay đổi từ sử dụng hàm \textbf{srand} thành hàm \textbf{uniform_int_distribution} của thư viện random c++11. Kết  Các mảng số nguyên phát sinh được yêu cầu sắp xếp tăng dần bằng các thuật toán đề cập trong thí nghiệm.
 
 \subsection{Cấu hình thực nghiệm}
 Số liệu thực nghiệm trong báo cáo có được thông qua việc sử dụng GitHub Actions để chạy thực nghiệm. Cấu hình của máy ảo cho một public repository của \href{https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources}{GitHub}:
